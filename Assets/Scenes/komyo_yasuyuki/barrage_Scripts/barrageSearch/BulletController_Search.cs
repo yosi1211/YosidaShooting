@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PoolControler;
+using PoolControler_Search;
 
-public class BulletController : MonoBehaviour
+public class BulletController_Search : MonoBehaviour
 {
     //オブジェクトプール用コントローラー格納用変数宣言
-    ObjectPoolControler objectPool;
+    ObjectPoolControler_Search objectPool;
     public float speed;
 
     void Start()
     {
         //オブジェクトプールを取得
-        objectPool = transform.parent.GetComponent<ObjectPoolControler>();
+        objectPool = transform.parent.GetComponent<ObjectPoolControler_Search>();
         gameObject.SetActive(false);
     }
 
@@ -28,7 +28,7 @@ public class BulletController : MonoBehaviour
     }
 
 
-    public void ShowInStage(Vector3 _pos,Quaternion rot)
+    public void ShowInStage(Vector3 _pos, Quaternion rot)
     {
         //positionを渡された座標に設定
         transform.position = _pos;

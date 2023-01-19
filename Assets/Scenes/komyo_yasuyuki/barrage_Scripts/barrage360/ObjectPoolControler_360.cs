@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PoolControler
+namespace PoolControler_360
 {
-    public class ObjectPoolControler : MonoBehaviour
+    public class ObjectPoolControler_360 : MonoBehaviour
     {
         //弾のプレハブ
-        [SerializeField] BulletController bullet;
+        [SerializeField] BulletController_360 bullet;
         //生成する数
         [SerializeField] int maxCount;
         //生成した弾を格納するQueue
-        Queue<BulletController> bulletQueue;
+        Queue<BulletController_360> bulletQueue;
         //初回生成時のポジション
         Vector3 setPos = new Vector3(100, 100, 0);
         Quaternion setRot = Quaternion.identity;
@@ -22,13 +22,13 @@ namespace PoolControler
         private void Awake()
         {
             //Queueの初期化
-            bulletQueue = new Queue<BulletController>();
+            bulletQueue = new Queue<BulletController_360>();
 
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
                 //生成
-                BulletController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                BulletController_360 tmpBullet = Instantiate(bullet, setPos, setRot, transform);
                 //Queueに追加
                 bulletQueue.Enqueue(tmpBullet);
             }
@@ -36,12 +36,12 @@ namespace PoolControler
 
 
         //弾を貸し出す処理
-        public BulletController Launch(Vector3 _pos, Quaternion rot)
+        public BulletController_360 Launch(Vector3 _pos, Quaternion rot)
         {
             //Queueが空ならnull
             if (bulletQueue.Count <= 0) return null;
             //Queueから弾を一つ取り出す
-            BulletController tmpBullet = bulletQueue.Dequeue();
+            BulletController_360 tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
             //回転させる
@@ -54,7 +54,7 @@ namespace PoolControler
         }
 
         //弾の回収処理
-        public void Collect(BulletController _bullet)
+        public void Collect(BulletController_360 _bullet)
         {
             //弾のゲームオブジェクトを非表示
             _bullet.gameObject.SetActive(false);
