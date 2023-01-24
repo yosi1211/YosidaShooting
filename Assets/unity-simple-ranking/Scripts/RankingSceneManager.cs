@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Linq;
 using NCMB;
 using NCMB.Extensions;
@@ -25,6 +26,8 @@ namespace naichilab
         [SerializeField] GameObject readingNodePrefab;
         [SerializeField] GameObject notFoundNodePrefab;
         [SerializeField] GameObject unavailableNodePrefab;
+
+        static bool rankingmove = false;
 
         private string _objectid = null;
 
@@ -225,7 +228,7 @@ namespace naichilab
                     var s = _board.BuildScore(r[COLUMN_SCORE].ToString());
                     rankNode.ScoreText.text = s != null ? s.TextForDisplay : "エラー";
 
-//                    Debug.Log(r[COLUMN_SCORE].ToString());
+                    //                    Debug.Log(r[COLUMN_SCORE].ToString());
                 }
             }
             else
@@ -238,6 +241,17 @@ namespace naichilab
         {
             closeButton.interactable = false;
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("Ranking");
+            if (!rankingmove)
+            {
+                var timeScore = new System.TimeSpan(0, TimeTest.minutu, TimeTest.second);
+                naichilab.RankingLoader.Instance.SendScoreAndShowRanking(timeScore, 0);
+                rankingmove = true;
+            }
+            else
+            {
+                SceneManager.LoadScene("title");
+                rankingmove = false;
+            }
         }
 
         private void MaskOffOn()

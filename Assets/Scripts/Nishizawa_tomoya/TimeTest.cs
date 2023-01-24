@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeTest : MonoBehaviour
 {
-
-    int second;
-    int minutu;
+    //このスクリプトはテキストにつける
+    static public int second;
+    static public int minutu;
     float time = 0f;
     Text scoretext = null;
 
@@ -42,17 +40,5 @@ public class TimeTest : MonoBehaviour
         }
 
         scoretext.text = minutuText + ":" + secondText ;
-    }
-
-    public void TestTime()
-    {
-        //timeをスコアとして使う場合
-        var timeScore = new System.TimeSpan(0, minutu, second);
-        //var millsec = 123456;
-        //var timeScore = new System.TimeSpan(0, 0, 0, 0, millsec);
-        naichilab.RankingLoader.Instance.SendScoreAndShowRanking(timeScore, 0);
-
-        //数値をスコアとして使う場合
-        //naichilab.RankingLoader.Instance.SendScoreAndShowRanking(100);
     }
 }
