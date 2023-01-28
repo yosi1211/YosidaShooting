@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PoolControler_Search;
+using PoolControler_Fire;
 
-public class BulletController_Search : MonoBehaviour
+public class BulletController_Fire : MonoBehaviour
 {
     //オブジェクトプール用コントローラー格納用変数宣言
-    ObjectPoolControler_Search objectPool;
+    ObjectPoolControler_Fire objectPool;
     public float speed;
 
     void Start()
     {
         //オブジェクトプールを取得
-        objectPool = transform.parent.GetComponent<ObjectPoolControler_Search>();
+        objectPool = transform.parent.GetComponent<ObjectPoolControler_Fire>();
         gameObject.SetActive(false);
     }
 
