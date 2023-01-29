@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9108272945644716969}
   - component: {fileID: -1166468386960036242}
   m_Layer: 0
-  m_Name: blueball
+  m_Name: Shot360
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
