@@ -22,6 +22,8 @@ public class EnemyMove : MonoBehaviour
 
     CompositeDisposable update = new CompositeDisposable();
 
+    [SerializeField] Launcher_360 launcherFlag;
+
     IDisposable tempUpdate;
     public IObservable<bool> GetMoveEnd() { return moveEnd; }
     private void Awake()
@@ -52,6 +54,7 @@ public class EnemyMove : MonoBehaviour
             .Subscribe(_ => {
                 tempUpdate.Dispose();
                 Move(movePos);
+                launcherFlag.SetLimit(1);
             })
             .AddTo(update);
         moveCount.Where(x => x == 2)
@@ -59,7 +62,8 @@ public class EnemyMove : MonoBehaviour
                 tempUpdate.Dispose();
                 //moveEnd.OnNext(true);
                 Move(InitPos);
-                })
+                launcherFlag.SetLimit(1);
+            })
             .AddTo(update);
         moveCount.Where(x => x == 3)
             .Subscribe(_ =>
@@ -77,6 +81,7 @@ public class EnemyMove : MonoBehaviour
                     speed = 20f;
                 }
                 Move(targetPos);
+                launcherFlag.SetLimit(1);
             }).AddTo(update);
         Move(targetPos);
     }
