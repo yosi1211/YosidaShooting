@@ -21,7 +21,7 @@ public class SummonEnemyController : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        //下の回収処理を呼び出す
+        //下の回収処理を呼び出す(こいつの場合HPがあれな時的な関数だと思う)
         HideFromStage();
     }
 

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +5,9 @@ namespace PoolControler_360
 {
     public class ObjectPoolControler_360 : MonoBehaviour
     {
+        //リストの取得
+        List<BulletController_360> _360L;
+        int listCount = 0;
         //弾のプレハブ
         [SerializeField] BulletController_360 bullet;
         //生成する数
@@ -23,6 +25,9 @@ namespace PoolControler_360
         {
             //Queueの初期化
             bulletQueue = new Queue<BulletController_360>();
+            //リストの初期化
+            _360L = new List<BulletController_360>();
+            listCount = _360L.Count;
 
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
@@ -44,6 +49,8 @@ namespace PoolControler_360
             BulletController_360 tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
+            //リストに格納
+            _360L.Add(tmpBullet);
             //回転させる
             z += density;
             rot = Quaternion.AngleAxis(z, Vector3.forward);
@@ -63,6 +70,13 @@ namespace PoolControler_360
         }
         public int Getdensity() {
             return density;
+        }
+        void CollectList() {
+            for (int i = 0; i < listCount; i++)
+            {
+                Collect(_360L[i]);
+            }
+            _360L.Clear();
         }
     }
 }
