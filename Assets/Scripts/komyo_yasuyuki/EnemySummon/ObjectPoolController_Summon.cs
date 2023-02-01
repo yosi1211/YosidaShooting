@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +5,9 @@ namespace PoolControler_Summon
 {
     public class ObjectPoolController_Summon : MonoBehaviour
     {
+        //リストの取得
+        List<SummonEnemyController> _SummonL;
+        int listCount = 0;
         //召喚する敵のプレハブ
         [SerializeField] SummonEnemyController bullet;
         //生成する数
@@ -34,7 +36,9 @@ namespace PoolControler_Summon
         {
             //Queueの初期化
             bulletQueue = new Queue<SummonEnemyController>();
-
+            //リストの初期化
+            _SummonL = new List<SummonEnemyController>();
+            listCount = _SummonL.Count;
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
@@ -55,6 +59,8 @@ namespace PoolControler_Summon
             SummonEnemyController tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
+            //リストに格納
+            _SummonL.Add(tmpBullet);
             //渡された座標に弾を移動する
             tmpBullet.ShowInStage(_pos);
             switch (count) {
@@ -86,7 +92,7 @@ namespace PoolControler_Summon
                     tmpBullet.transform.position += Maxidown;
                     break;
                 default:
-                    Debug.Log("えらってますよ間抜けが");
+                    Debug.Log("エラーです!!!!!!!!!");
                     break;
             }
             //呼び出し元に渡す
@@ -100,6 +106,14 @@ namespace PoolControler_Summon
             _bullet.gameObject.SetActive(false);
             //Queueに格納
             bulletQueue.Enqueue(_bullet);
+        }
+        void CollectList()
+        {
+            for (int i = 0; i < listCount; i++)
+            {
+                Collect(_SummonL[i]);
+            }
+            _SummonL.Clear();
         }
     }
 }

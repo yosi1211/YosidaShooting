@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +5,9 @@ namespace PoolControler_Twin
 {
     public class ObjectPoolControler_Twin : MonoBehaviour
     {
+        //リストの取得
+        List<BulletController_Twin> _TwinL;
+        int listCount = 0;
         //弾のプレハブ
         [SerializeField] BulletController_Twin bullet;
         //生成する数
@@ -22,7 +24,9 @@ namespace PoolControler_Twin
         {
             //Queueの初期化
             bulletQueue = new Queue<BulletController_Twin>();
-
+            //リストの初期化
+            _TwinL = new List<BulletController_Twin>();
+            listCount = _TwinL.Count;
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
@@ -43,6 +47,8 @@ namespace PoolControler_Twin
             BulletController_Twin tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
+            //リストに格納
+            _TwinL.Add(tmpBullet);
             //間をあける
             if (x == 0)
             {
@@ -68,9 +74,13 @@ namespace PoolControler_Twin
             //Queueに格納
             bulletQueue.Enqueue(_bullet);
         }
-        //public int Getspace()
-        //{
-          //  return space;
-        //}
+        void CollectList()
+        {
+            for (int i = 0; i < listCount; i++)
+            {
+                Collect(_TwinL[i]);
+            }
+            _TwinL.Clear();
+        }
     }
 }
