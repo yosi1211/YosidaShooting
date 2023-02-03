@@ -14,7 +14,6 @@ namespace naichilab
         private const string COLUMN_SCORE = "score";
         private const string COLUMN_NAME = "name";
 
-
         [SerializeField] Text captionLabel;
         [SerializeField] Text scoreLabel;
         [SerializeField] Text highScoreLabel;
@@ -243,14 +242,14 @@ namespace naichilab
             UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("Ranking");
             if (!rankingmove)
             {
-                var timeScore = new System.TimeSpan(0, TimeTest.minutu, TimeTest.second);
+                var timeScore = new System.TimeSpan(0, TimerManager.clearminutu, TimerManager.clearsecond);
                 naichilab.RankingLoader.Instance.SendScoreAndShowRanking(timeScore, 0);
                 rankingmove = true;
             }
             else
             {
-                SceneManager.LoadScene("title");
                 rankingmove = false;
+                SceneManager.LoadScene("title");
             }
         }
 
