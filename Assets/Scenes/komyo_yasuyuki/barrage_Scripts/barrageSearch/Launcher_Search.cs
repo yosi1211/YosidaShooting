@@ -1,16 +1,15 @@
 using UnityEngine;
-using PoolControler_360;
+using PoolControler_Search;
 using UniRx;
 using Other_Script;
-
-public class Launcher_360 : MonoBehaviour
+public class Launcher_Search : MonoBehaviour
 {
     int Limit;
     Subject<int> shotLimit = new(); //1回で撃つ上限
     Subject<int> shotCount = new(); //撃った回数
     CompositeDisposable disposable = new();
     //オブジェクトプール
-    [SerializeField] ObjectPoolControler_360 objectPool;
+    [SerializeField] ObjectPoolControler_Search objectPool;
     //発射の間隔
     [SerializeField] float interval;
     private TimerModel timerModel = new();
@@ -24,10 +23,7 @@ public class Launcher_360 : MonoBehaviour
                 .Where(x => x < Limit)
             .Subscribe(x =>
             {
-                for (int i = 0; i < 360; i += objectPool.Getdensity())
-                {
-                    objectPool.Launch(transform.position, transform.rotation);
-                }
+                objectPool.Launch(transform.position);
                 timerModel.EndTimer();
                 timerModel = new();
                 timerModel.GetEndTimer()
@@ -56,9 +52,9 @@ public class Launcher_360 : MonoBehaviour
     //テスト用
     public void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    SetLimit(10);
-        //}
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SetLimit(20);
+        }
     }
 }
