@@ -6,6 +6,8 @@ public class SummonEnemyController : MonoBehaviour
     //オブジェクトプール用コントローラー格納用変数宣言
     ObjectPoolController_Summon objectPool;
     public float speed;
+    [SerializeField]
+    private int HP;
 
     void Start()
     {
@@ -16,14 +18,14 @@ public class SummonEnemyController : MonoBehaviour
 
     void Update()
     {
-        //transform.position += transform.up * speed * Time.deltaTime;
+        HideFromStage();
     }
 
-    private void OnBecameInvisible()
+    /*private void OnBecameInvisible()
     {
         //下の回収処理を呼び出す(こいつの場合HPがあれな時的な関数だと思う)
         HideFromStage();
-    }
+    }*/
 
 
     public void ShowInStage(Vector3 _pos)
@@ -34,7 +36,10 @@ public class SummonEnemyController : MonoBehaviour
 
     public void HideFromStage()
     {
-        //オブジェクトプールのCollect関数を呼び出し自身を回収
-        objectPool.Collect(this);
+        if (HP <= 0)
+        {
+            //オブジェクトプールのCollect関数を呼び出し自身を回収
+            objectPool.Collect(this);
+        }
     }
 }
