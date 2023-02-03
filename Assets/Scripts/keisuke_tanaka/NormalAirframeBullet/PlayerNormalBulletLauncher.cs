@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
-public class PlayerBulletLauncher : MonoBehaviour
+public class PlayerNormalBulletLauncher : MonoBehaviour
 {
     CompositeDisposable disposable = new();
     //オブジェクトプール
-    [SerializeField] PlayerBulletPoolController objectPool;
+    [SerializeField] PlayerNormalBulletPoolController objectPool;
     //発射の間隔
     [SerializeField] float interval;
 
@@ -24,9 +24,10 @@ public class PlayerBulletLauncher : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             _shot();
         }
     }
+
 }
