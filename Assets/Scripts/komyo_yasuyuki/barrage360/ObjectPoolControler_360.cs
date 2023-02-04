@@ -71,8 +71,7 @@ namespace PoolControler_360
         public int Getdensity() {
             return density;
         }
-        public void CollectList() {
-            listCount = _360L.Count;
+        void CollectList() {
             for (int i = 0; i < listCount; i++)
             {
                 Collect(_360L[i]);
