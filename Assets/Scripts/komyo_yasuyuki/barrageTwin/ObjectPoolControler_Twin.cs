@@ -27,6 +27,7 @@ namespace PoolControler_Twin
             //ƒŠƒXƒg‚Ì‰Šú‰»
             _TwinL = new List<BulletController_Twin>();
             listCount = _TwinL.Count;
+
             //’e‚ğ¶¬‚·‚éƒ‹[ƒv
             for (int i = 0; i < maxCount; i++)
             {
@@ -47,8 +48,6 @@ namespace PoolControler_Twin
             BulletController_Twin tmpBullet = bulletQueue.Dequeue();
             //’e‚ğ•\¦‚·‚é
             tmpBullet.gameObject.SetActive(true);
-            //ƒŠƒXƒg‚ÉŠi”[
-            _TwinL.Add(tmpBullet);
             //ŠÔ‚ğ‚ ‚¯‚é
             if (x == 0)
             {
@@ -74,7 +73,7 @@ namespace PoolControler_Twin
             //Queue‚ÉŠi”[
             bulletQueue.Enqueue(_bullet);
         }
-        void CollectList()
+        public void CollectList()
         {
             for (int i = 0; i < listCount; i++)
             {
@@ -82,5 +81,9 @@ namespace PoolControler_Twin
             }
             _TwinL.Clear();
         }
+        //public int Getspace()
+        //{
+        //  return space;
+        //}
     }
 }

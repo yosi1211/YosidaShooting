@@ -59,7 +59,7 @@ namespace PoolControler_Summon
             tmpBullet.gameObject.SetActive(true);
             //リストに格納
             _SummonL.Add(tmpBullet);
-            //渡された座標に弾を移動する
+            //渡された座標に移動する
             tmpBullet.ShowInStage(_pos);
             switch (count) {
                 case 1:
@@ -97,15 +97,15 @@ namespace PoolControler_Summon
             //呼び出し元に渡す
             return tmpBullet;
         }
-        //弾の回収処理
+        //回収処理
         public void Collect(SummonEnemyController _bullet)
         {
-            //弾のゲームオブジェクトを非表示
+            //ゲームオブジェクトを非表示
             _bullet.gameObject.SetActive(false);
             //Queueに格納
             bulletQueue.Enqueue(_bullet);
         }
-        void CollectList()
+        public void CollectList()
         {
             for (int i = 0; i < listCount; i++)
             {

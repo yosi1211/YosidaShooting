@@ -4,13 +4,16 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 using System;
+using UnityEngine.UI;
 
-public class EnemyMove : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
+    
+    public SpriteRenderer enemyimg;
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
-    private int HP = 74;
+    private int EnemyHP;
     private Subject<int> moveCount = new Subject<int>();
     private int count = 0;
     [SerializeField]
@@ -28,6 +31,7 @@ public class EnemyMove : MonoBehaviour
     public IObservable<bool> GetMoveEnd() { return moveEnd; }
     private void Awake()
     {
+        enemyimg = GetComponent<SpriteRenderer>();
         InitPos = transform.position;
     }
     void Start()
@@ -71,19 +75,32 @@ public class EnemyMove : MonoBehaviour
                 //moveEnd.OnNext(true);
                 tempUpdate.Dispose();
                 count = 0;
-                if (HP < 75){
+                if (EnemyHP < 80){
+                    speed = 8f;
+                }
+                if (EnemyHP < 50){
                     speed = 10f;
                 }
-                if (HP < 50){
-                    speed = 15f;
-                }
-                if(HP < 25){
-                    speed = 20f;
+                if(EnemyHP < 20){
+                    speed = 12f;
                 }
                 Move(targetPos);
                 launcherFlag.SetLimit(1);
             }).AddTo(update);
         Move(targetPos);
+    }
+    public void EnemyHPManager(int attackPoint)
+    {
+        Debug.Log(EnemyHP);
+        EnemyHP -= attackPoint;
+        StartCoroutine(hitdamage());
+        Debug.Log(EnemyHP + "//" + attackPoint);
+    }
+    private IEnumerator hitdamage()
+    {
+        enemyimg.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        enemyimg.color = Color.white;
     }
     private void OnDestroy()
     {

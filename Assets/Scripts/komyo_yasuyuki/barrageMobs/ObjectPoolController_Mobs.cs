@@ -73,7 +73,7 @@ namespace PoolControler_Mobs
             //Queue‚ÉŠi”[
             bulletQueue.Enqueue(_bullet);
         }
-        void CollectList()
+        public void CollectList()
         {
             for (int i = 0; i < listCount; i++)
             {

@@ -6,14 +6,14 @@ namespace PoolControler_Option
     public class ObjectPoolController_Option : MonoBehaviour
     {
         //リストの取得
-        List<SummonOptionController> _SummonL;
+        List<SummonOptionController> _SummonOL;
         int listCount = 0;
         //召喚する敵のプレハブ
-        [SerializeField] SummonOptionController bullet;
+        [SerializeField] SummonOptionController option;
         //生成する数
         int maxCount = 2;
         //生成した敵を格納するQueue
-        Queue<SummonOptionController> bulletQueue;
+        Queue<SummonOptionController> optionQueue;
         //初回生成時のポジション
         Vector3 setPos = new Vector3(100, 100, 0);
         Quaternion setRot = Quaternion.identity;
@@ -29,46 +29,46 @@ namespace PoolControler_Option
         private void Awake()
         {
             //Queueの初期化
-            bulletQueue = new Queue<SummonOptionController>();
+            optionQueue = new Queue<SummonOptionController>();
             //リストの初期化
-            _SummonL = new List<SummonOptionController>();
-            listCount = _SummonL.Count;
-            //敵を生成するループ
+            _SummonOL = new List<SummonOptionController>();
+            listCount = _SummonOL.Count;
+            //オプションを生成
             for (int i = 0; i < maxCount; i++)
             {
                 //生成
-                SummonOptionController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
                 //Queueに追加
-                bulletQueue.Enqueue(tmpBullet);
+                optionQueue.Enqueue(tmpOption);
             }
         }
         //貸し出す処理
         public SummonOptionController Launch(Vector3 _pos)
         {
             //Queueが空ならnull
-            if (bulletQueue.Count <= 0) return null;
-            //Queueから敵を一つ取り出す
-            SummonOptionController tmpBullet = bulletQueue.Dequeue();
-            //敵を表示する
-            tmpBullet.gameObject.SetActive(true);
+            if (optionQueue.Count <= 0) return null;
+            //Queueから一つ取り出す
+            SummonOptionController tmpOption = optionQueue.Dequeue();
+            //表示する
+            tmpOption.gameObject.SetActive(true);
             //リストに格納
-            _SummonL.Add(tmpBullet);
-            //渡された座標に弾を移動する
-            tmpBullet.ShowInStage(_pos);
+            _SummonOL.Add(tmpOption);
+            //渡された座標に移動する
+            tmpOption.ShowInStage(_pos);
             switch (count)
             {
                 case 1:
                     right.x = _right;
-                    tmpBullet.transform.position += right;
+                    tmpOption.transform.position += right;
                     down.y = _down;
-                    tmpBullet.transform.position += down;
+                    tmpOption.transform.position += down;
                     count++;
                     break;
                 case 2:
                     left.x = _left;
-                    tmpBullet.transform.position += left;
+                    tmpOption.transform.position += left;
                     down.y = _down;
-                    tmpBullet.transform.position += down;
+                    tmpOption.transform.position += down;
                     count = 1;
                     break;
                 default:
@@ -76,23 +76,23 @@ namespace PoolControler_Option
                     break;
             }
             //呼び出し元に渡す
-            return tmpBullet;
+            return tmpOption;
         }
-        //弾の回収処理
+        //回収処理
         public void Collect(SummonOptionController _bullet)
         {
-            //弾のゲームオブジェクトを非表示
+            //ゲームオブジェクトを非表示
             _bullet.gameObject.SetActive(false);
             //Queueに格納
-            bulletQueue.Enqueue(_bullet);
+            optionQueue.Enqueue(_bullet);
         }
         void CollectList()
         {
             for (int i = 0; i < listCount; i++)
             {
-                Collect(_SummonL[i]);
+                Collect(_SummonOL[i]);
             }
-            _SummonL.Clear();
+            _SummonOL.Clear();
         }
     }
 }

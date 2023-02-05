@@ -64,7 +64,7 @@ namespace PoolControler_OptionB
             //Queue‚ÉŠi”[
             bulletQueue.Enqueue(_bullet);
         }
-        void CollectList()
+        public void CollectList()
         {
             for (int i = 0; i < listCount; i++)
             {

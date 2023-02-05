@@ -14,10 +14,6 @@ public class Launcher_360 : MonoBehaviour
     //発射の間隔
     [SerializeField] float interval;
     private TimerModel timerModel = new();
-
-    void Start()
-    {
-    }
     void _shot()
     {
         shotCount.DistinctUntilChanged()
@@ -56,9 +52,9 @@ public class Launcher_360 : MonoBehaviour
     //テスト用
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            SetLimit(10);
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    SetLimit(10);
+        //}
     }
 }

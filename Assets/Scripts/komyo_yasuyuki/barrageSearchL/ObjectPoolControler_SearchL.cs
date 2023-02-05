@@ -5,9 +5,6 @@ namespace PoolControler_SearchL
 {
     public class ObjectPoolControler_SearchL : MonoBehaviour
     {
-        //リストの取得
-        List<BulletController_SearchL> _SearchLL;
-        int listCount = 0;
         //弾のプレハブ
         [SerializeField] BulletController_SearchL bullet;
         [SerializeField] Transform bulletPrefab;
@@ -24,9 +21,7 @@ namespace PoolControler_SearchL
         {
             //Queueの初期化
             bulletQueue = new Queue<BulletController_SearchL>();
-            //リストの初期化
-            _SearchLL = new List<BulletController_SearchL>();
-            listCount = _SearchLL.Count;
+
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
@@ -47,8 +42,6 @@ namespace PoolControler_SearchL
             BulletController_SearchL tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
-            //リストに格納
-            _SearchLL.Add(tmpBullet);
             //渡された座標に弾を移動する
             tmpBullet.ShowInStage(_pos);
             tmpBullet.transform.position += Vector3.left;
@@ -63,14 +56,6 @@ namespace PoolControler_SearchL
             _bullet.gameObject.SetActive(false);
             //Queueに格納
             bulletQueue.Enqueue(_bullet);
-        }
-        void CollectList()
-        {
-            for (int i = 0; i < listCount; i++)
-            {
-                Collect(_SearchLL[i]);
-            }
-            _SearchLL.Clear();
         }
     }
 }
