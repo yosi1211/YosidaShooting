@@ -26,7 +26,6 @@ public class PlayerBulletLauncher : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.K))
         {
-            Debug.Log("ffsf");
             _shot();
         }
     }

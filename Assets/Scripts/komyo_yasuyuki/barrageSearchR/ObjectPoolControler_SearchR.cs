@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,9 +6,6 @@ namespace PoolControler_SearchR
 {
     public class ObjectPoolControler_SearchR : MonoBehaviour
     {
-        //リストの取得
-        List<BulletController_SearchR> _SearchRL;
-        int listCount = 0;
         //弾のプレハブ
         [SerializeField] BulletController_SearchR bullet;
         [SerializeField] Transform bulletPrefab;
@@ -24,9 +22,7 @@ namespace PoolControler_SearchR
         {
             //Queueの初期化
             bulletQueue = new Queue<BulletController_SearchR>();
-            //リストの初期化
-            _SearchRL = new List<BulletController_SearchR>();
-            listCount = _SearchRL.Count;
+
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
@@ -47,8 +43,6 @@ namespace PoolControler_SearchR
             BulletController_SearchR tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
-            //リストに格納
-            _SearchRL.Add(tmpBullet);
             //渡された座標に弾を移動する
             tmpBullet.ShowInStage(_pos);
             tmpBullet.transform.position += Vector3.right;
@@ -63,14 +57,6 @@ namespace PoolControler_SearchR
             _bullet.gameObject.SetActive(false);
             //Queueに格納
             bulletQueue.Enqueue(_bullet);
-        }
-        void CollectList()
-        {
-            for (int i = 0; i < listCount; i++)
-            {
-                Collect(_SearchRL[i]);
-            }
-            _SearchRL.Clear();
         }
     }
 }
