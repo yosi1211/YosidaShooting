@@ -21,13 +21,6 @@ public class SummonEnemyController : MonoBehaviour
         HideFromStage();
     }
 
-    /*private void OnBecameInvisible()
-    {
-        //下の回収処理を呼び出す(こいつの場合HPがあれな時的な関数だと思う)
-        HideFromStage();
-    }*/
-
-
     public void ShowInStage(Vector3 _pos)
     {
         //positionを渡された座標に設定

@@ -1,28 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using PoolControler_Summon;
 
-public class PowerUpItem : MonoBehaviour
-{
-    [SerializeField]
-    int speed;
-    private void Awake()
+namespace Power
     {
-    }
-    void Update()
+    public class PowerUpItem : MonoBehaviour
     {
-        transform.position += transform.up * speed * Time.deltaTime;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player")) {
-            gameObject.SetActive(false);
-            //powerUP処理
+        [SerializeField]
+        int speed;
+        [SerializeField]
+        OptionSummon optionSummon;
+        private void Awake()
+        {
         }
-    }
-    private void OnBecameInvisible()
-    {
-        gameObject.SetActive(false);
+        void Update()
+        {
+            transform.position -= transform.up * speed * Time.deltaTime;
+            if (gameObject.activeSelf) {
+            }
+        }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Debug.Log("ナラティブ");
+            if (collision.gameObject.CompareTag("Player")) {
+                gameObject.SetActive(false);
+                //powerUP処理
+                optionSummon.SetLimit(1);
+            }
+        }
+        private void OnBecameInvisible()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

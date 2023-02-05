@@ -5,18 +5,14 @@ using Other_Script;
 public class Launchar_Option : MonoBehaviour
 {
     int Limit;
-    Subject<int> shotLimit = new(); //1回で撃つ上限
-    Subject<int> shotCount = new(); //撃った回数
+    Subject<int> shotLimit = new(); //1回で出す上限
+    Subject<int> shotCount = new(); //出した回数
     CompositeDisposable disposable = new();
     //オブジェクトプール
     [SerializeField] ObjectPoolController_OptionBullet objectPool;
-    //発射の間隔
+    //出現の間隔
     [SerializeField] float interval;
     private TimerModel timerModel = new();
-
-    void Start()
-    {
-    }
     void _shot()
     {
         shotCount.DistinctUntilChanged()
@@ -49,10 +45,9 @@ public class Launchar_Option : MonoBehaviour
         }).AddTo(disposable);
         shotLimit.OnNext(_Limit);
     }
-    //テスト用
-    public void Update()
+    public void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.Space/*ここをplayerの攻撃と同じに*/))
         {
             SetLimit(1);
         }

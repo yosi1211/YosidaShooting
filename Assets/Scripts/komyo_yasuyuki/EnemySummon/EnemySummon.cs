@@ -6,16 +6,16 @@ using Other_Script;
 public class EnemySummon : MonoBehaviour
 {
     int Limit;
-    Subject<int> shotLimit = new(); //1回で撃つ上限
-    Subject<int> shotCount = new(); //撃った回数
+    Subject<int> shotLimit = new(); //1回で出る上限
+    Subject<int> shotCount = new(); //出た回数
     CompositeDisposable disposable = new();
     //オブジェクトプール
     [SerializeField] ObjectPoolController_Summon objectPool;
-    //発射の間隔
+    //出現の間隔
     [SerializeField] float interval;
     private TimerModel timerModel = new();
     //powerUPアイテムの生成
-    [SerializeField, Header("ガキ")]
+    [SerializeField, Header("子")]
     private GameObject PItem;
     void _shot()
     {
