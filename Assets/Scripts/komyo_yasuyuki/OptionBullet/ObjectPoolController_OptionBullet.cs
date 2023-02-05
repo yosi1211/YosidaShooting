@@ -1,20 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PoolControler_SearchL
+namespace PoolControler_OptionB
 {
-    public class ObjectPoolControler_SearchL : MonoBehaviour
+    public class ObjectPoolController_OptionBullet : MonoBehaviour
     {
         //リストの取得
-        List<BulletController_SearchL> _SearchLL;
+        List<BulletController_Option> OptionBL;
         int listCount = 0;
         //弾のプレハブ
-        [SerializeField] BulletController_SearchL bullet;
+        [SerializeField] BulletController_Option bullet;
         [SerializeField] Transform bulletPrefab;
         //生成する数
         [SerializeField] int maxCount;
         //生成した弾を格納するQueue
-        Queue<BulletController_SearchL> bulletQueue;
+        Queue<BulletController_Option> bulletQueue;
         //初回生成時のポジション
         Vector3 setPos = new Vector3(100, 100, 0);
         Quaternion setRot = Quaternion.identity;
@@ -23,41 +23,41 @@ namespace PoolControler_SearchL
         private void Awake()
         {
             //Queueの初期化
-            bulletQueue = new Queue<BulletController_SearchL>();
+            bulletQueue = new Queue<BulletController_Option>();
             //リストの初期化
-            _SearchLL = new List<BulletController_SearchL>();
-            listCount = _SearchLL.Count;
+            OptionBL = new List<BulletController_Option>();
+            listCount = OptionBL.Count;
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
                 //生成
-                BulletController_SearchL tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                BulletController_Option tmpBullet = Instantiate(bullet, setPos, setRot, transform);
                 //Queueに追加
                 bulletQueue.Enqueue(tmpBullet);
+                gameObject.transform.parent = null;
             }
         }
 
 
         //弾を貸し出す処理
-        public BulletController_SearchL Launch(Vector3 _pos)
+        public BulletController_Option Launch(Vector3 _pos)
         {
             //Queueが空ならnull
             if (bulletQueue.Count <= 0) return null;
             //Queueから弾を一つ取り出す
-            BulletController_SearchL tmpBullet = bulletQueue.Dequeue();
+            BulletController_Option tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
             //リストに格納
-            _SearchLL.Add(tmpBullet);
+            OptionBL.Add(tmpBullet);
             //渡された座標に弾を移動する
             tmpBullet.ShowInStage(_pos);
-            tmpBullet.transform.position += Vector3.left;
             //呼び出し元に渡す
             return tmpBullet;
         }
 
         //弾の回収処理
-        public void Collect(BulletController_SearchL _bullet)
+        public void Collect(BulletController_Option _bullet)
         {
             //弾のゲームオブジェクトを非表示
             _bullet.gameObject.SetActive(false);
@@ -68,9 +68,9 @@ namespace PoolControler_SearchL
         {
             for (int i = 0; i < listCount; i++)
             {
-                Collect(_SearchLL[i]);
+                Collect(OptionBL[i]);
             }
-            _SearchLL.Clear();
+            OptionBL.Clear();
         }
     }
 }
