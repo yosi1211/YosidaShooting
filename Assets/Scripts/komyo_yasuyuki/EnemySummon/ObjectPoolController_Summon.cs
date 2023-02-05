@@ -39,7 +39,7 @@ namespace PoolControler_Summon
             //リストの初期化
             _SummonL = new List<SummonEnemyController>();
             listCount = _SummonL.Count;
-            //弾を生成するループ
+            //敵を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
                 //生成
@@ -48,16 +48,14 @@ namespace PoolControler_Summon
                 bulletQueue.Enqueue(tmpBullet);
             }
         }
-
-
-        //弾を貸し出す処理
+                //貸し出す処理
         public SummonEnemyController Launch(Vector3 _pos)
         {
             //Queueが空ならnull
             if (bulletQueue.Count <= 0) return null;
-            //Queueから弾を一つ取り出す
+            //Queueから敵を一つ取り出す
             SummonEnemyController tmpBullet = bulletQueue.Dequeue();
-            //弾を表示する
+            //敵を表示する
             tmpBullet.gameObject.SetActive(true);
             //リストに格納
             _SummonL.Add(tmpBullet);
@@ -90,15 +88,15 @@ namespace PoolControler_Summon
                     tmpBullet.transform.position += left;
                     Maxidown.y = _Maxidown;
                     tmpBullet.transform.position += Maxidown;
+                    count = 1;
                     break;
                 default:
-                    Debug.Log("エラーです!!!!!!!!!");
+                    Debug.Log("ナラティブ不足です!!!!!!!");
                     break;
             }
             //呼び出し元に渡す
             return tmpBullet;
         }
-
         //弾の回収処理
         public void Collect(SummonEnemyController _bullet)
         {

@@ -14,19 +14,24 @@ public class EnemySummon : MonoBehaviour
     //”­Ë‚ÌŠÔŠu
     [SerializeField] float interval;
     private TimerModel timerModel = new();
-
-    void Start()
-    {
-    }
+    //powerUPƒAƒCƒeƒ€‚Ì¶¬
+    [SerializeField, Header("ƒKƒL")]
+    private GameObject PItem;
     void _shot()
     {
         shotCount.DistinctUntilChanged()
                 .Where(x => x < Limit)
             .Subscribe(x =>
             {
+                int rand = Random.Range(0,4);
                 for (int i = 0; i < 4;i++)
                 {
                     objectPool.Launch(transform.position);
+                    if (i == rand) {
+                        PItem.transform.parent
+                            = objectPool.transform.GetChild(i);
+                        PItem.transform.position = objectPool.transform.localPosition;
+                    }
                 }
                 timerModel.EndTimer();
                 timerModel = new();
@@ -58,7 +63,7 @@ public class EnemySummon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            SetLimit(10);
+            SetLimit(1);
         }
     }
 }
