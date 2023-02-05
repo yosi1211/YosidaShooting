@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using PoolControler_Summon;
 
@@ -10,8 +8,9 @@ public class PowerUpItemManager : MonoBehaviour
     [SerializeField]
     GameObject PItem;
     bool check = false;
-    bool call = true;
-
+    bool caal = true;
+    GameObject root;
+    private GameObject keep;
     private void Start()
     {
         PItem.SetActive(false);
@@ -19,26 +18,32 @@ public class PowerUpItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ランダムな親オブジェクトに
-        GameObject root = PItem.transform.parent.gameObject;
+       
+        if (caal)
+        {
+            //ランダムな親オブジェクトに
+            root = PItem.transform.parent.gameObject;
+            if (keep != null && keep != root) {
+                Debug.Log(root);
+                caal = false;
+            }
+            keep = root;
+        }
         if (root.activeSelf)
         {
-            if (call)
-            {
-                PItem.transform.position = root.transform.position;
-            }
+            PItem.transform.position = root.transform.position;
+            check = true;
         }
         else{
             //親オブジェクト解除
             PItem.transform.parent = null;
             //このscriptがアタッチされているオブジェクトの子供に
             PItem.transform.parent = transform.gameObject.transform;
-            check = true;
-        }
-        if (check)
-        {
-            //表示
-            PItem.SetActive(true);
+            if (check)
+            {
+                PItem.SetActive(true);
+                check = false;
+            }
         }
     }
 }
