@@ -18,11 +18,15 @@ public class SummonOptionController : MonoBehaviour
     //くっつかないよう
     float distance = 1;
     Vector2 playerVec;
+    //player
+    public void Init(GameObject gameObject)
+    {
+        Player = gameObject;
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         //playerのトランスフォームを取得
-        Player = GameObject.Find("Player");
         mytrans = GetComponent<Transform>();
         //オブジェクトプールを取得
         objectPool = transform.parent.GetComponent<ObjectPoolController_Option>();

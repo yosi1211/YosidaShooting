@@ -23,6 +23,9 @@ namespace PoolControler_Mobs
         GameObject target;
         //Vector2 targetVec;
         //起動時の処理
+        public void Init(GameObject gameObject) {
+            target = gameObject;
+        }
         private void Awake()
         {
             //Queueの初期化
@@ -30,8 +33,6 @@ namespace PoolControler_Mobs
             //リストの初期化
             _MobsL = new List<BulletController_Mobs>();
             listCount = _MobsL.Count;
-            //playerの取得
-            target = GameObject.Find("Player");
 
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)

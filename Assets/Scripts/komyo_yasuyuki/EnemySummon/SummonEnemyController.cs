@@ -8,7 +8,12 @@ public class SummonEnemyController : MonoBehaviour
     public float speed;
     [SerializeField]
     private int HP;
+    GameObject player;
 
+    public void Init(GameObject gameObject)
+    {
+        player = gameObject;
+    }
     void Start()
     {
         //オブジェクトプールを取得

@@ -13,10 +13,6 @@ public class Launcher_Mobs : MonoBehaviour
     //”­ŽË‚ÌŠÔŠu
     [SerializeField] float interval;
     private TimerModel timerModel = new();
-
-    void Start()
-    {
-    }
     void _shot()
     {
         shotCount.DistinctUntilChanged()
