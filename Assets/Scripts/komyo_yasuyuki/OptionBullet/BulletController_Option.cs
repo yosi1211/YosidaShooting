@@ -23,7 +23,14 @@ public class BulletController_Option : MonoBehaviour
         //‰º‚Ì‰ñûˆ—‚ğŒÄ‚Ño‚·
         HideFromStage();
     }
-
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            objectPool.Collect(this);
+            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
+        }
+    }
 
     public void ShowInStage(Vector3 _pos)
     {

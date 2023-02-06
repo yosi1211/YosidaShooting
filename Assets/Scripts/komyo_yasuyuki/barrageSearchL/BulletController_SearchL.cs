@@ -3,7 +3,6 @@ using PoolControler_SearchL;
 
 public class BulletController_SearchL : MonoBehaviour
 {
-
     //オブジェクトプール用コントローラー格納用変数宣言
     ObjectPoolControler_SearchL objectPool;
     public float speed;//速度
@@ -14,16 +13,18 @@ public class BulletController_SearchL : MonoBehaviour
     GameObject Bullet;
     [SerializeField,Header("追尾範囲")]
     float distance;
-
     public void Init(GameObject gameObject)
     {
         target = gameObject;
     }
+
     void Start()
     {
         //オブジェクトプールを取得
         objectPool = transform.parent.GetComponent<ObjectPoolControler_SearchL>();
         gameObject.SetActive(false);
+        //狙う対象を名前で取得
+        
     }
     void Update()
     {

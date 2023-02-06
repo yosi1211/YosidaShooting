@@ -13,7 +13,6 @@ public class BulletController_SearchR : MonoBehaviour
     GameObject Bullet;
     [SerializeField, Header("’Ç”ö”ÍˆÍ")]
     float distance;
-
     public void Init(GameObject gameObject)
     {
         target = gameObject;

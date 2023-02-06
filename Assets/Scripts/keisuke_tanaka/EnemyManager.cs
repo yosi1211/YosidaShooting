@@ -28,6 +28,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Launcher_360 launcher360;
     [SerializeField] Launcher_Fire launcherFire;
     [SerializeField] Launcher_Twin launcherTwin;
+    [SerializeField] Launcher_SearchL launcherSearchL;
+    [SerializeField] Launcher_SearchR launcherSearchR;
+    [SerializeField] EnemySummon enemy_summon;
+
+    private float randomValue;
 
     IDisposable tempUpdate;
     public IObservable<bool> GetMoveEnd() { return moveEnd; }
@@ -39,6 +44,10 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         MovePattern();
+    }
+    void Update()
+    {
+        randomValue = UnityEngine.Random.Range(1, 6);
     }
     private void Move(Vector3 target)
     {
@@ -60,7 +69,7 @@ public class EnemyManager : MonoBehaviour
             .Subscribe(_ => {
                 tempUpdate.Dispose();
                 Move(movePos);
-                launcher360.SetLimit(1);
+                RandomMove();
             })
             .AddTo(update);
         moveCount.Where(x => x == 2)
@@ -68,7 +77,7 @@ public class EnemyManager : MonoBehaviour
                 tempUpdate.Dispose();
                 //moveEnd.OnNext(true);
                 Move(InitPos);
-                launcher360.SetLimit(1);
+                RandomMove();
             })
             .AddTo(update);
         moveCount.Where(x => x == 3)
@@ -79,17 +88,15 @@ public class EnemyManager : MonoBehaviour
                 count = 0;
                 if (EnemyHP < 80){
                     speed = 7f;
-                    launcherFire.SetLimit(1);
                 }
                 if (EnemyHP < 50){
                     speed = 9f;
-                    launcherTwin.SetLimit(1);
                 }
                 if (EnemyHP < 20){
                     speed = 11f;
                 }
                 Move(targetPos);
-                launcher360.SetLimit(1);
+                RandomMove();
             }).AddTo(update);
         Move(targetPos);
     }
@@ -105,6 +112,31 @@ public class EnemyManager : MonoBehaviour
         enemyimg.color = Color.red;
         yield return new WaitForSeconds(0.5f);
         enemyimg.color = Color.white;
+    }
+    private void RandomMove()
+    {
+        Debug.Log(randomValue);
+        switch (randomValue)
+        {
+            case 1:
+                launcher360.SetLimit(1);
+                break;
+            case 2:
+                launcherFire.SetLimit(1);
+                break;
+            case 3:
+                launcherTwin.SetLimit(1);
+                break;
+            case 4:
+                launcherSearchL.SetLimit(1);
+                break;
+            case 5:
+                launcherSearchR.SetLimit(1);
+                break;
+            case 6:
+                enemy_summon.SetLimit(1);
+                break;
+        }
     }
     private void OnDestroy()
     {
