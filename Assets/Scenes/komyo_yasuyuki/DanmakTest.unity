@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8354660981903179046}
-  mob: {fileID: 4135376202861604622, guid: 7eaee3d73f32a1747abd8449fb66d4fb, type: 3}
+  bullet: {fileID: 4135376202861604622, guid: 7eaee3d73f32a1747abd8449fb66d4fb, type: 3}
   _left: -1
   _right: 1
   _down: -1
