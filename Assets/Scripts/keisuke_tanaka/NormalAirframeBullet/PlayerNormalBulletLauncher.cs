@@ -24,7 +24,7 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKey(KeyCode.Space))
         {
             _shot();
         }
