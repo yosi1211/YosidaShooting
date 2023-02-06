@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6308718677355756433}
   - component: {fileID: 5033052724104577092}
+  - component: {fileID: 5287032250374919498}
   - component: {fileID: -531646215561706823}
   m_Layer: 0
   m_Name: SpreadBullet
@@ -85,6 +86,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &5287032250374919498
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666926730627252161}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005402833, y: 0.005911857}
+  serializedVersion: 2
+  m_Radius: 0.19740272
 --- !u!114 &-531646215561706823
 MonoBehaviour:
   m_ObjectHideFlags: 0

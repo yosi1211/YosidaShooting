@@ -49,7 +49,6 @@ namespace PoolControler_Fire
             tmpBullet.gameObject.SetActive(true);
             //‰ñ“]‚³‚¹‚é
             z += density;
-            Debug.Log(z);
             rot = Quaternion.AngleAxis(z, Vector3.forward);
             if (z == 195)
             {
