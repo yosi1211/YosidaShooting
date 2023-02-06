@@ -13,6 +13,17 @@ public class Launcher_Mobs : MonoBehaviour
     //発射の間隔
     [SerializeField] float interval;
     private TimerModel timerModel = new();
+    public float span = 3f;
+    private float currentTime = 0f;
+    private void FixedUpdate()
+    {
+        currentTime += Time.deltaTime;
+        if (currentTime > span)
+        {
+            SetLimit(1);
+            currentTime = 0f;
+        }
+    }
     void _shot()
     {
         shotCount.DistinctUntilChanged()
@@ -44,13 +55,5 @@ public class Launcher_Mobs : MonoBehaviour
             _shot();
         }).AddTo(disposable);
         shotLimit.OnNext(_Limit);
-    }
-    //テスト用
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SetLimit(1);
-        }
     }
 }
