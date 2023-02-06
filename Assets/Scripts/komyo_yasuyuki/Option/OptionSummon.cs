@@ -55,9 +55,9 @@ public class OptionSummon : MonoBehaviour
     //テスト用
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SetLimit(1);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SetLimit(1);
+        //}
     }
 }

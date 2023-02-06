@@ -24,7 +24,6 @@ public class PowerUpItemManager : MonoBehaviour
             //ランダムな親オブジェクトに
             root = PItem.transform.parent.gameObject;
             if (keep != null && keep != root) {
-                Debug.Log(root);
                 caal = false;
             }
             keep = root;

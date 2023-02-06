@@ -6,7 +6,8 @@ namespace PoolControler_Summon
 {
     public class ObjectPoolController_Summon : MonoBehaviour
     {
-
+        [SerializeField]
+        PlayerBulletPoolController _pbpcontroller;
         [SerializeField] private GameObject player;
         //リストの取得
         List<SummonEnemyController> _SummonL;
@@ -34,9 +35,12 @@ namespace PoolControler_Summon
         [SerializeField]
         float _Maxidown;
         Vector3 Maxidown;
+        private int moblookactive = 0;
+        //Vector3 pos;
         //起動時の処理
         private void Awake()
         {
+            //pos = transform.position;
             //Queueの初期化
             bulletQueue = new Queue<SummonEnemyController>();
             //リストの初期化
@@ -48,6 +52,7 @@ namespace PoolControler_Summon
                 //生成
                 SummonEnemyController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
                 tmpBullet.GetComponentInChildren<ObjectPoolController_Mobs>().Init(player);
+                _pbpcontroller.AddObj(tmpBullet.gameObject);
                 //Queueに追加
                 bulletQueue.Enqueue(tmpBullet);
             }
@@ -63,6 +68,11 @@ namespace PoolControler_Summon
             tmpBullet.gameObject.SetActive(true);
             //リストに格納
             _SummonL.Add(tmpBullet);
+            moblookactive++;
+            if (moblookactive == 12)
+            {
+                moblookactive = 0;
+            }
             //渡された座標に移動する
             tmpBullet.ShowInStage(_pos);
             switch (count) {
@@ -106,6 +116,7 @@ namespace PoolControler_Summon
         {
             //ゲームオブジェクトを非表示
             _bullet.gameObject.SetActive(false);
+
             //Queueに格納
             bulletQueue.Enqueue(_bullet);
         }
@@ -117,6 +128,19 @@ namespace PoolControler_Summon
                 Collect(_SummonL[i]);
             }
             _SummonL.Clear();
+        }
+        public void MobData(int i)
+        {
+            moblookactive += i;
+            Debug.Log(moblookactive);
+        }
+        public int GetMobData()
+        {
+            return moblookactive;
+        }
+        public void AddDeathCount()
+        {
+            moblookactive++;
         }
     }
 }
