@@ -9,10 +9,10 @@ using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour
 {
     
-    public SpriteRenderer enemyimg;
-    [SerializeField]
+    private SpriteRenderer enemyimg;
+    [SerializeField,Header("敵のスピード")]
     private float speed = 5f;
-    [SerializeField]
+    [SerializeField,Header("敵のHP")]
     private int EnemyHP;
     private Subject<int> moveCount = new Subject<int>();
     private int count = 0;
@@ -25,7 +25,9 @@ public class EnemyManager : MonoBehaviour
 
     CompositeDisposable update = new CompositeDisposable();
 
-    [SerializeField] Launcher_360 launcherFlag;
+    [SerializeField] Launcher_360 launcher360;
+    [SerializeField] Launcher_Fire launcherFire;
+    [SerializeField] Launcher_Twin launcherTwin;
 
     IDisposable tempUpdate;
     public IObservable<bool> GetMoveEnd() { return moveEnd; }
@@ -58,7 +60,7 @@ public class EnemyManager : MonoBehaviour
             .Subscribe(_ => {
                 tempUpdate.Dispose();
                 Move(movePos);
-                launcherFlag.SetLimit(1);
+                launcher360.SetLimit(1);
             })
             .AddTo(update);
         moveCount.Where(x => x == 2)
@@ -66,7 +68,7 @@ public class EnemyManager : MonoBehaviour
                 tempUpdate.Dispose();
                 //moveEnd.OnNext(true);
                 Move(InitPos);
-                launcherFlag.SetLimit(1);
+                launcher360.SetLimit(1);
             })
             .AddTo(update);
         moveCount.Where(x => x == 3)
@@ -76,16 +78,18 @@ public class EnemyManager : MonoBehaviour
                 tempUpdate.Dispose();
                 count = 0;
                 if (EnemyHP < 80){
-                    speed = 8f;
+                    speed = 7f;
+                    launcherFire.SetLimit(1);
                 }
                 if (EnemyHP < 50){
-                    speed = 10f;
+                    speed = 9f;
+                    launcherTwin.SetLimit(1);
                 }
-                if(EnemyHP < 20){
-                    speed = 12f;
+                if (EnemyHP < 20){
+                    speed = 11f;
                 }
                 Move(targetPos);
-                launcherFlag.SetLimit(1);
+                launcher360.SetLimit(1);
             }).AddTo(update);
         Move(targetPos);
     }

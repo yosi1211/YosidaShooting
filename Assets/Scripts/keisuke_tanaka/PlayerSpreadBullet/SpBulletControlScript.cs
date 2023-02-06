@@ -10,7 +10,7 @@ public class SpBulletControlScript : MonoBehaviour
     {
         transform.localPosition += velocity;
     }
-    public void Init(float angle,float speed)
+    public void Init(float angle, float speed)
     {
         var direction = Utils.GetDirection(angle);
         velocity = direction * speed;
@@ -19,5 +19,12 @@ public class SpBulletControlScript : MonoBehaviour
         transform.localEulerAngles = angles;
 
         Destroy(gameObject, 0.35f);
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
+        }
     }
 }
