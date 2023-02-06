@@ -803,6 +803,7 @@ MonoBehaviour:
   readingNodePrefab: {fileID: 1697434335251524, guid: 4c6a250f3c6f843ef990e40389cb6254, type: 3}
   notFoundNodePrefab: {fileID: 1697434335251524, guid: 98a445350dbe3473e9e5158ac55d6e94, type: 3}
   unavailableNodePrefab: {fileID: 1697434335251524, guid: 8cfbc606367ac4d27b4a3c4b2d4646b5, type: 3}
+  sceneName: TitleScene
 --- !u!4 &699432289
 Transform:
   m_ObjectHideFlags: 0

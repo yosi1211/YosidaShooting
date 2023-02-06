@@ -26,6 +26,9 @@ namespace naichilab
         [SerializeField] GameObject notFoundNodePrefab;
         [SerializeField] GameObject unavailableNodePrefab;
 
+        [SerializeField, Header("タイトルシーン名")]
+        string sceneName;
+
         static bool rankingmove = false;
 
         private string _objectid = null;
@@ -249,7 +252,7 @@ namespace naichilab
             else
             {
                 rankingmove = false;
-                SceneManager.LoadScene("title");
+                SceneManager.LoadScene(sceneName);
             }
         }
 

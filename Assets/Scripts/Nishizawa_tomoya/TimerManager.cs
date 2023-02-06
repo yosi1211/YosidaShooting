@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class TimerManager : MonoBehaviour
 {
-    //ゲームをクリアした時にタイマーをストップする必要がある
-    [SerializeField, Header("RankingManager参照用")]
-    RankingManager rankingManager;
     [SerializeField, Header("Timer表示用text")]
-    Text TimerText;
+    TextMeshProUGUI TimerText;
     [SerializeField, Header("制限時間（秒）")]
     float limittime = 180f;
 
@@ -24,7 +21,7 @@ public class TimerManager : MonoBehaviour
 
     void Start()
     {
-        TimerText = TimerText.GetComponent<Text>();
+        TimerText = TimerText.GetComponent<TextMeshProUGUI>();
         limittime += 1;     //クリア後に秒数の少数が切り捨てられるため＋1
         time = limittime;
     }
@@ -48,7 +45,7 @@ public class TimerManager : MonoBehaviour
 
         if (minutu < 10)
         {
-            minutuText = "0" + minutu.ToString();
+            minutuText = minutu.ToString();
         }
         else
         {
@@ -73,13 +70,16 @@ public class TimerManager : MonoBehaviour
         limittime -= time;
         clearminutu = (int)limittime / 60;
         clearsecond = (int)limittime % 60;
-        rankingManager.ownmachine_ranking();
     }
 
-    public bool TimerStop()        //タイマーをストップする関数
+    public void TimerStart()
+    {
+        timestop = false;
+    }
+
+    public void TimerStop()        //タイマーをストップする関数
     {
         timestop = true;
-        return timestop;
     }
 }
 
