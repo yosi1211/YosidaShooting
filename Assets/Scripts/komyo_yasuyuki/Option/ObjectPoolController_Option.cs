@@ -5,6 +5,9 @@ namespace PoolControler_Option
 {
     public class ObjectPoolController_Option : MonoBehaviour
     {
+        //player‚Ìæ“¾ 
+        [SerializeField]
+        private GameObject player;
         //ƒŠƒXƒg‚Ìæ“¾
         List<SummonOptionController> _SummonOL;
         int listCount = 0;
@@ -38,6 +41,7 @@ namespace PoolControler_Option
             {
                 //¶¬
                 SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
+                tmpOption.Init(player);
                 //Queue‚É’Ç‰Á
                 optionQueue.Enqueue(tmpOption);
             }

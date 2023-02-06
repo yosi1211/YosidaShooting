@@ -1,15 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using PoolControler_Mobs;
 
 namespace PoolControler_Summon
 {
     public class ObjectPoolController_Summon : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject player;
         //ƒŠƒXƒg‚Ìæ“¾
         List<SummonEnemyController> _SummonL;
         int listCount = 0;
         //¢Š«‚·‚é“G‚ÌƒvƒŒƒnƒu
-        [SerializeField] SummonEnemyController bullet;
+        [SerializeField] SummonEnemyController mob;
         //¶¬‚·‚é”
         int maxCount = 4;
         //¶¬‚µ‚½“G‚ğŠi”[‚·‚éQueue
@@ -43,7 +46,8 @@ namespace PoolControler_Summon
             for (int i = 0; i < maxCount; i++)
             {
                 //¶¬
-                SummonEnemyController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                SummonEnemyController tmpBullet = Instantiate(mob, setPos, setRot, transform);
+                tmpBullet.GetComponentInChildren<ObjectPoolController_Mobs>().Init(player);
                 //Queue‚É’Ç‰Á
                 bulletQueue.Enqueue(tmpBullet);
             }

@@ -5,6 +5,9 @@ namespace PoolControler_SearchR
 {
     public class ObjectPoolControler_SearchR : MonoBehaviour
     {
+        //player‚Ìæ“¾ 
+        [SerializeField]
+        private GameObject player;
         //’e‚ÌƒvƒŒƒnƒu
         [SerializeField] BulletController_SearchR bullet;
         [SerializeField] Transform bulletPrefab;
@@ -27,6 +30,7 @@ namespace PoolControler_SearchR
             {
                 //¶¬
                 BulletController_SearchR tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                tmpBullet.Init(player);
                 //Queue‚É’Ç‰Á
                 bulletQueue.Enqueue(tmpBullet);
             }

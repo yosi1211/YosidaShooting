@@ -14,13 +14,15 @@ public class BulletController_SearchR : MonoBehaviour
     [SerializeField, Header("追尾範囲")]
     float distance;
 
+    public void Init(GameObject gameObject)
+    {
+        target = gameObject;
+    }
     void Start()
     {
         //オブジェクトプールを取得
         objectPool = transform.parent.GetComponent<ObjectPoolControler_SearchR>();
         gameObject.SetActive(false);
-        //狙う対象を名前で取得
-        target = GameObject.Find("Player");
     }
     void Update()
     {

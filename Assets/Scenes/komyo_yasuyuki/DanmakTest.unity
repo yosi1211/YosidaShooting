@@ -1232,7 +1232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0a4881876c0f7469265b3304326880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4135376202861604622, guid: 7eaee3d73f32a1747abd8449fb66d4fb, type: 3}
+  player: {fileID: 8354660981903179046}
+  mob: {fileID: 4135376202861604622, guid: 7eaee3d73f32a1747abd8449fb66d4fb, type: 3}
   _left: -1
   _right: 1
   _down: -1
@@ -1266,6 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e07dbc1a4f0904cb5d69553e4ed3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8354660981903179046}
   option: {fileID: 3751027280035174806, guid: 96aaae4f849d17e4f95ccadba079d115, type: 3}
 --- !u!4 &1658849553
 Transform:
@@ -1402,6 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07c1946724f824479c5bf74dd1ba98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8354660981903179046}
   bullet: {fileID: 7966761330681012301, guid: f13d3545c4a121947a3fcb4edb0426a0, type: 3}
   bulletPrefab: {fileID: 4797006008852606294, guid: f13d3545c4a121947a3fcb4edb0426a0, type: 3}
   maxCount: 20
@@ -1616,6 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1d1cde0c8cbe44a9ac948a8a4470c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 8354660981903179046}
   bullet: {fileID: -6126580963041048109, guid: 2f7ee75fd1c54bf41895913e568d742b, type: 3}
   bulletPrefab: {fileID: 4797006008852606294, guid: 2f7ee75fd1c54bf41895913e568d742b, type: 3}
   maxCount: 20
