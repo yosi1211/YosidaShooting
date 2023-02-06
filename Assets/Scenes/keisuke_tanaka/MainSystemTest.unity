@@ -235,6 +235,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
+    m_ActionName: Player/Bomb[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -554,7 +558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86, y: -147}
+  m_AnchoredPosition: {x: -86.9, y: -147}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114751972
@@ -796,6 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d5ad65223fa134b9965e690eb239f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombList: []
   PrefabBomb: {fileID: 1081187846}
   firingBomb: {fileID: 1764923478}
 --- !u!4 &244582017
@@ -924,6 +929,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
+    m_ActionName: Player/Bomb[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1607,6 +1616,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
+    m_ActionName: Player/Bomb[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1787,7 +1800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86, y: -147}
+  m_AnchoredPosition: {x: -86.9, y: -147}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1058579535
@@ -1921,7 +1934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86, y: -147}
+  m_AnchoredPosition: {x: -86.9, y: -147}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1067735117
@@ -2549,7 +2562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e07dbc1a4f0904cb5d69553e4ed3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1002608414}
+  player: {fileID: 12730914}
   option: {fileID: 3751027280035174806, guid: 96aaae4f849d17e4f95ccadba079d115, type: 3}
 --- !u!1 &1292971795
 GameObject:
@@ -3141,13 +3154,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1951971079}
   - component: {fileID: 1951971078}
+  - component: {fileID: 1951971080}
   m_Layer: 0
   m_Name: SpreadBulletAframeCreateBombPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1951971078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3155,11 +3169,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951971077}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6d5ad65223fa134b9965e690eb239f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombList:
+  - {fileID: 114751970}
+  - {fileID: 1058579533}
+  - {fileID: 1067735115}
   PrefabBomb: {fileID: 1328919852}
   firingBomb: {fileID: 992102663}
 --- !u!4 &1951971079
@@ -3177,6 +3195,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1951971080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951971077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 6453724da20992042a990d1d6e12a6af, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5580386e-66f2-4f8f-99d5-93c9af050423
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e710fbb-d2d0-4a85-80fa-f60193e2dc74
+    m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ad6a0735-497a-4557-8722-58c88dabc1e2
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951971078}
+        m_TargetAssemblyTypeName: BombInstantiate, Assembly-CSharp
+        m_MethodName: InputBomb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
+    m_ActionName: Player/Bomb[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b7b986cf-8327-4c85-aa15-237c4f19698c
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e3ac7a7a-33b5-4ced-bb17-fe0b8647669f
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebf1f018-f617-4cd6-b20b-0c5b8549ea5f
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8cc52b30-3825-43ca-937f-a5ffa86e55f8
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2fcd127a-f261-4889-a0c7-b2fd89e60b80
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1eee1c33-ce3d-4e2e-a2a5-36de32c8896b
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c397986c-6766-4299-b183-49e38001e1f3
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a1e7dc94-8ebd-4c4c-9fac-a775e423cc6b
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e82a221c-8443-4f2e-9d9f-d30b6304a973
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1975831445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3601,6 +3717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d5ad65223fa134b9965e690eb239f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombList: []
   PrefabBomb: {fileID: 8560447436330263794}
   firingBomb: {fileID: 2008930659}
 --- !u!4 &2116929573

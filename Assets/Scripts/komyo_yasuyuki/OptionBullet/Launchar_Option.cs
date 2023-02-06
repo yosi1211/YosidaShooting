@@ -47,7 +47,7 @@ public class Launchar_Option : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space/*‚±‚±‚ğplayer‚ÌUŒ‚‚Æ“¯‚¶‚É*/))
+        if (Input.GetKey(KeyCode.Space/*‚±‚±‚ğplayer‚ÌUŒ‚‚Æ“¯‚¶‚É*/))
         {
             SetLimit(1);
         }

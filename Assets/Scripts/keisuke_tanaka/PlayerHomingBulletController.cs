@@ -46,6 +46,10 @@ public class PlayerHomingBulletController : MonoBehaviour
             collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
             objectPool.Collect(this);
         }
+        if (collision.gameObject.tag == "EnemyMob")
+        {
+            objectPool.Collect(this);
+        }
     }
 
     public void ShowInStage(Vector3 _pos/*, Quaternion rot*/)

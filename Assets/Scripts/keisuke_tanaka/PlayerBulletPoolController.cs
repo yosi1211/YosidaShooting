@@ -39,7 +39,6 @@ public class PlayerBulletPoolController : MonoBehaviour
             tmpBullet = Instantiate(bullet, setPos, setRot, transform);
             if (summonPoolController.GetMobData() == 0)
             {
-                Debug.Log("0if");
                 tmpBullet.Init(targetBossEnemy);
             }
             //if (summonPoolController.GetMobData() == 4)
