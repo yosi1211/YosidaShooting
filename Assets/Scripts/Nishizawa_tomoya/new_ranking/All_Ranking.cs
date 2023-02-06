@@ -106,8 +106,8 @@ public class All_Ranking : MonoBehaviour
         //ƒ‰ƒ“ƒLƒ“ƒOŒÄ‚Ño‚µ
         for (int i = 0; i < ranking_key.Length; i++)
         {
-            rankingValue[i] = PlayerPrefs.GetInt(ranking_key[i], 999);
-            userValue[i] = PlayerPrefs.GetString(Name_ranking_key[i], "user");
+            rankingValue[i] = PlayerPrefs.GetInt(ranking_key[i], 3600);
+            userValue[i] = PlayerPrefs.GetString(Name_ranking_key[i], "---");
         }
     }
 
