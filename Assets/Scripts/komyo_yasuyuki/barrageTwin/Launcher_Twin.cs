@@ -54,9 +54,9 @@ public class Launcher_Twin : MonoBehaviour
     //テスト用
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            SetLimit(3);
-        }
+        //if (Input.GetKeyDown(KeyCode.V))
+        //{
+        //    SetLimit(3);
+        //}
     }
 }

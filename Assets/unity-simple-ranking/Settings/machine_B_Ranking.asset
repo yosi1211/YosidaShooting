@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70574be0ea4044ac8d85c166124b3b1, type: 3}
   m_Name: machine_B_Ranking
   m_EditorClassIdentifier: 
-  BoardName: "\u81EA\u6A5FB"
+  BoardName: Normal
   ClassName: B_Ranking
   Type: 1
   Order: 0

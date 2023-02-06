@@ -27,7 +27,6 @@ namespace PoolControler_Fire
             //ƒŠƒXƒg‚Ì‰Šú‰»
             _FireL = new List<BulletController_Fire>();
             listCount = _FireL.Count;
-
             //’e‚ğ¶¬‚·‚éƒ‹[ƒv
             for (int i = 0; i < maxCount; i++)
             {
@@ -48,19 +47,13 @@ namespace PoolControler_Fire
             BulletController_Fire tmpBullet = bulletQueue.Dequeue();
             //’e‚ğ•\¦‚·‚é
             tmpBullet.gameObject.SetActive(true);
-            //ƒŠƒXƒg‚ÉŠi”[
-            _FireL.Add(tmpBullet);
             //‰ñ“]‚³‚¹‚é
             z += density;
-            Debug.Log(z);
             rot = Quaternion.AngleAxis(z, Vector3.forward);
             if (z == 195)
             {
                 z = 155;
             }
-            // else if (z == 170) { 
-            //   z = 180;
-            //}
             //“n‚³‚ê‚½À•W‚É’e‚ğˆÚ“®‚·‚é
             tmpBullet.ShowInStage(_pos, rot);
             //ŒÄ‚Ño‚µŒ³‚É“n‚·
@@ -75,17 +68,17 @@ namespace PoolControler_Fire
             //Queue‚ÉŠi”[
             bulletQueue.Enqueue(_bullet);
         }
-        public int Getdensity()
-        {
-            return density;
-        }
-        void CollectList()
+        public void CollectList()
         {
             for (int i = 0; i < listCount; i++)
             {
                 Collect(_FireL[i]);
             }
             _FireL.Clear();
+        }
+        public int Getdensity()
+        {
+            return density;
         }
     }
 }
