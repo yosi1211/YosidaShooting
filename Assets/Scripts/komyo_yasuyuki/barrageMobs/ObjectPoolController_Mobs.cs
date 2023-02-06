@@ -21,6 +21,7 @@ namespace PoolControler_Mobs
         int z = 0;
         //プレイヤー追尾用
         GameObject target;
+
         //Vector2 targetVec;
         //起動時の処理
         public void Init(GameObject gameObject) {

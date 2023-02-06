@@ -61,9 +61,9 @@ public class EnemySummon : MonoBehaviour
     //テスト用
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            SetLimit(1);
-        }
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    SetLimit(1);
+        //}
     }
 }

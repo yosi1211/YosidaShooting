@@ -7,15 +7,19 @@ public class PlayerHomingBulletController : MonoBehaviour
     //オブジェクトプール用コントローラー格納用変数宣言
     PlayerBulletPoolController objectPool;
     public float speed;
-    GameObject target;
+    private GameObject target;
     Vector3 targetVec;
 
+    public void Init(GameObject gameObject)
+    {
+        target = gameObject;
+    }
     void Start()
     {
         //オブジェクトプールを取得
         objectPool = transform.parent.GetComponent<PlayerBulletPoolController>();
         gameObject.SetActive(false);
-        target = GameObject.Find("Enemy");
+
         targetVec = target.transform.position;
     }
 
@@ -39,9 +43,11 @@ public class PlayerHomingBulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
             objectPool.Collect(this);
         }
     }
+
     public void ShowInStage(Vector3 _pos/*, Quaternion rot*/)
     {
         //positionを渡された座標に設定

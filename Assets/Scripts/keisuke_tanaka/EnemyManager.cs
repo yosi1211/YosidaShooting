@@ -34,6 +34,7 @@ public class EnemyManager : MonoBehaviour
 
     private float randomValue;
 
+    private int MobFlag = 0;
     IDisposable tempUpdate;
     public IObservable<bool> GetMoveEnd() { return moveEnd; }
     private void Awake()
@@ -86,14 +87,26 @@ public class EnemyManager : MonoBehaviour
                 //moveEnd.OnNext(true);
                 tempUpdate.Dispose();
                 count = 0;
-                if (EnemyHP < 80){
-                    speed = 7f;
+                if (EnemyHP < 75){
+                    speed = 5f;
+                    if(MobFlag == 0){
+                        enemy_summon.SetLimit(1);
+                        MobFlag = 1;
+                    }
                 }
                 if (EnemyHP < 50){
-                    speed = 9f;
+                    speed = 7f;
+                    if(MobFlag == 1){
+                        enemy_summon.SetLimit(1);
+                        MobFlag = 2;
+                    }
                 }
-                if (EnemyHP < 20){
-                    speed = 11f;
+                if (EnemyHP < 25){
+                    speed = 9f;
+                    if (MobFlag == 2){
+                        enemy_summon.SetLimit(1);
+                        MobFlag = 3;
+                    }
                 }
                 Move(targetPos);
                 RandomMove();
@@ -115,7 +128,6 @@ public class EnemyManager : MonoBehaviour
     }
     private void RandomMove()
     {
-        Debug.Log(randomValue);
         switch (randomValue)
         {
             case 1:
@@ -132,9 +144,6 @@ public class EnemyManager : MonoBehaviour
                 break;
             case 5:
                 launcherSearchR.SetLimit(1);
-                break;
-            case 6:
-                enemy_summon.SetLimit(1);
                 break;
         }
     }
