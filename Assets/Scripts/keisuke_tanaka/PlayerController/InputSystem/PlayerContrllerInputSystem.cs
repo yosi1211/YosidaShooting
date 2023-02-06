@@ -27,13 +27,13 @@ public class PlayerContrllerInputSystem : MonoBehaviour
 
     private void PlayerMove()
     {
-        move = new Vector2(inputValue.x, inputValue.y);
-        move = move * speed * Time.deltaTime;
+        move = inputValue * speed*Time.deltaTime;
         transform.Translate(move);
     }
 
     public void PlayerInput(InputAction.CallbackContext context)
     {
         inputValue = context.ReadValue<Vector2>();
+        Debug.Log(inputValue);
     }
 }
