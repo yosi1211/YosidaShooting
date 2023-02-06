@@ -14,14 +14,22 @@ namespace SceneaManger
 
         public void LoadData(AsyncOperation load)
         {
+            int nowtime = 0;
             loadingUI.SetActive(true);
             while (!load.isDone)
             {
+                
                 var progressVal = Mathf.Clamp01(load.progress / 0.9f);
+                
                 loadSlider.value = progressVal;
                 if (loadSlider.value >= 0.9f)
                 {
-                    break;
+                    nowtime++ ;
+                    if (nowtime > 300000000000000)
+                    {
+                        break;
+                    }
+                   
                 }
             }
         }
