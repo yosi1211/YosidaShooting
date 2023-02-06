@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PoolControler_360;
+using PoolControler_Fire;
+using PoolControler_Twin;
+using PoolControler_SearchL;
+using PoolControler_SearchR;
+using PoolControler_Summon;
 
 public class BombShot : MonoBehaviour
 {
-    [SerializeField] ObjectPoolControler_360 enemybullet;
+    [SerializeField] ObjectPoolControler_360 enemybullet360;
+    [SerializeField] ObjectPoolControler_Fire enemybulletFire;
+    [SerializeField] ObjectPoolControler_Twin enemybulletTwin;
+    [SerializeField] ObjectPoolControler_SearchL enemybulletSearchL;
+    [SerializeField] ObjectPoolControler_SearchR enemybulletSearchR;
+    [SerializeField] ObjectPoolController_Summon enemybulletSummon;
+
     [SerializeField] private Vector3 force = new Vector3(0,0.5f,0);
     [SerializeField] Rigidbody2D rb;
     //É{ÉÄÇÃà íuç¿ïW
@@ -31,7 +42,12 @@ public class BombShot : MonoBehaviour
     {
         if (Bombtransform == explosePosition)
         {
-            enemybullet.CollectList();
+            enemybullet360.CollectList();
+            enemybulletFire.CollectList();
+            enemybulletTwin.CollectList();
+            enemybulletSearchL.CollectList();
+            enemybulletSearchR.CollectList();
+            enemybulletSummon.CollectList();
             targetObject.transform.localScale += changesizespeed * Time.deltaTime;
         }
         else

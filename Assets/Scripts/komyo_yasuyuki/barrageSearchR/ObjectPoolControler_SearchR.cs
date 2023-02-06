@@ -5,9 +5,10 @@ namespace PoolControler_SearchR
 {
     public class ObjectPoolControler_SearchR : MonoBehaviour
     {
-        //playerの取得 
-        [SerializeField]
-        private GameObject player;
+        //Playerの取得
+        [SerializeField] private GameObject player;
+        List<BulletController_SearchR> _SearchR;
+        int listCount = 0;
         //弾のプレハブ
         [SerializeField] BulletController_SearchR bullet;
         [SerializeField] Transform bulletPrefab;
@@ -18,13 +19,16 @@ namespace PoolControler_SearchR
         //初回生成時のポジション
         Vector3 setPos = new Vector3(100, 100, 0);
         Quaternion setRot = Quaternion.identity;
+        int density = 10;
         int z = 0;
+
         //起動時の処理
         private void Awake()
         {
             //Queueの初期化
             bulletQueue = new Queue<BulletController_SearchR>();
-
+            _SearchR = new List<BulletController_SearchR>();
+            listCount = _SearchR.Count;
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
@@ -46,6 +50,7 @@ namespace PoolControler_SearchR
             BulletController_SearchR tmpBullet = bulletQueue.Dequeue();
             //弾を表示する
             tmpBullet.gameObject.SetActive(true);
+            _SearchR.Add(tmpBullet);
             //渡された座標に弾を移動する
             tmpBullet.ShowInStage(_pos);
             tmpBullet.transform.position += Vector3.right;
@@ -61,5 +66,19 @@ namespace PoolControler_SearchR
             //Queueに格納
             bulletQueue.Enqueue(_bullet);
         }
+        public void CollectList()
+        {
+            listCount = _SearchR.Count;
+            for (int i = 0; i < listCount; i++)
+            {
+                Collect(_SearchR[i]);
+            }
+            _SearchR.Clear();
+        }
+        public int Getdensity()
+        {
+            return density;
+        }
+
     }
 }

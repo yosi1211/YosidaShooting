@@ -47,6 +47,7 @@ namespace PoolControler_Fire
             BulletController_Fire tmpBullet = bulletQueue.Dequeue();
             //’e‚ð•\Ž¦‚·‚é
             tmpBullet.gameObject.SetActive(true);
+            _FireL.Add(tmpBullet);
             //‰ñ“]‚³‚¹‚é
             z += density;
             rot = Quaternion.AngleAxis(z, Vector3.forward);
@@ -70,6 +71,7 @@ namespace PoolControler_Fire
         }
         public void CollectList()
         {
+            listCount = _FireL.Count;
             for (int i = 0; i < listCount; i++)
             {
                 Collect(_FireL[i]);

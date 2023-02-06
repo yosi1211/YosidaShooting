@@ -48,6 +48,7 @@ namespace PoolControler_Twin
             BulletController_Twin tmpBullet = bulletQueue.Dequeue();
             //’e‚ð•\Ž¦‚·‚é
             tmpBullet.gameObject.SetActive(true);
+            _TwinL.Add(tmpBullet);
             //ŠÔ‚ð‚ ‚¯‚é
             if (x == 0)
             {
@@ -75,6 +76,7 @@ namespace PoolControler_Twin
         }
         public void CollectList()
         {
+            listCount = _TwinL.Count;
             for (int i = 0; i < listCount; i++)
             {
                 Collect(_TwinL[i]);
