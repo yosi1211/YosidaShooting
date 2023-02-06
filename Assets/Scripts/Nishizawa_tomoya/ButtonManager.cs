@@ -17,6 +17,13 @@ public class ButtonManager : MonoBehaviour
         machineSelect_Canvas.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("start") || Input.GetMouseButtonDown(0))
+        {
+            START_OnClick();
+        }
+    }
     public void START_OnClick()
     {
         machineSelect_Canvas.SetActive(true);
