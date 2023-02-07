@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using playermanager;
 
 namespace gameover
 {
@@ -11,6 +12,7 @@ namespace gameover
         private float time;
         [SerializeField]
         TimerManager timer;
+        //[SerializeField] PlayerManager Pmanager;
         private void Update()
         {
             if (timer.Getendtime())
@@ -18,6 +20,10 @@ namespace gameover
                 result.SetActive(true);
                 Invoke("BackTitl", time);
             }
+            /*if (Pmanager.GetLifeStock() == 0) {
+                result.SetActive(true);
+                Invoke("BackTitl", time);
+            }*/
         }
         public void BackTitl()
         {
