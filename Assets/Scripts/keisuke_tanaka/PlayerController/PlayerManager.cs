@@ -9,6 +9,7 @@ namespace playermanager
         [SerializeField] private float LifeStock = 3;
         //[SerializeField] private int Life = 100;
         [SerializeField] GameObject player;
+        [SerializeField] bool damageFlag = false;
 
         //void OnCollisionEnter2D(Collision2D collision)
         //{
@@ -40,8 +41,10 @@ namespace playermanager
         }*/
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "EnemyBullet")
+            if (collision.gameObject.tag == "EnemyBullet" && damageFlag == false)
             {
+                Debug.Log("‚­‚ç‚Á‚½");
+                damageFlag = true;
                 LifeStock--;
                 player.SetActive(false);
                 Invoke("Respawn", 3.0f);
@@ -49,6 +52,7 @@ namespace playermanager
         }
         private void Respawn()
         {
+            damageFlag = false;
             player.SetActive(true);
         }
         public float GetLifeStock()

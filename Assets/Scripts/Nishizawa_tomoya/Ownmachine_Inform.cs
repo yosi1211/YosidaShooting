@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ownmachine_Inform
 {
-    //ゲームのスコアもまとめて持ってきてもいいかも
     static public int ownmachine = 0;
 
 #if DEBUG

@@ -8,11 +8,11 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
-    
+
     private SpriteRenderer enemyimg;
-    [SerializeField,Header("敵のスピード")]
+    [SerializeField, Header("敵のスピード")]
     private float speed = 5f;
-    [SerializeField,Header("敵のHP")]
+    [SerializeField, Header("敵のHP")]
     private int EnemyHP;
     private Subject<int> moveCount = new Subject<int>();
     private int count = 0;
@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     Vector3 movePos;
     private Vector3 InitPos;
-    private Subject<bool> moveEnd = new Subject<bool> ();
+    private Subject<bool> moveEnd = new Subject<bool>();
 
     CompositeDisposable update = new CompositeDisposable();
 
@@ -31,6 +31,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] Launcher_SearchL launcherSearchL;
     [SerializeField] Launcher_SearchR launcherSearchR;
     [SerializeField] EnemySummon enemy_summon;
+
+    [SerializeField, Header("Ranking参照")]
+    RankingManager rankingManager;
+
+    private bool rankingFlag = true;
 
     private float randomValue;
 
@@ -67,14 +72,16 @@ public class EnemyManager : MonoBehaviour
     {
         count = 0;
         moveCount.Where(x => x == 1)
-            .Subscribe(_ => {
+            .Subscribe(_ =>
+            {
                 tempUpdate.Dispose();
                 Move(movePos);
                 RandomMove();
             })
             .AddTo(update);
         moveCount.Where(x => x == 2)
-            .Subscribe(_ => {
+            .Subscribe(_ =>
+            {
                 tempUpdate.Dispose();
                 //moveEnd.OnNext(true);
                 Move(InitPos);
@@ -87,23 +94,29 @@ public class EnemyManager : MonoBehaviour
                 //moveEnd.OnNext(true);
                 tempUpdate.Dispose();
                 count = 0;
-                if (EnemyHP < 75){
+                if (EnemyHP < 75)
+                {
                     speed = 5f;
-                    if(MobFlag == 0){
+                    if (MobFlag == 0)
+                    {
                         enemy_summon.SetLimit(1);
                         MobFlag = 1;
                     }
                 }
-                if (EnemyHP < 50){
+                if (EnemyHP < 50)
+                {
                     speed = 7f;
-                    if(MobFlag == 1){
+                    if (MobFlag == 1)
+                    {
                         enemy_summon.SetLimit(1);
                         MobFlag = 2;
                     }
                 }
-                if (EnemyHP < 25){
+                if (EnemyHP < 25)
+                {
                     speed = 9f;
-                    if (MobFlag == 2){
+                    if (MobFlag == 2)
+                    {
                         enemy_summon.SetLimit(1);
                         MobFlag = 3;
                     }
@@ -116,7 +129,14 @@ public class EnemyManager : MonoBehaviour
     public void EnemyHPManager(int attackPoint)
     {
         Debug.Log(EnemyHP);
-        EnemyHP -= attackPoint;
+        if (EnemyHP >= 0)
+        {
+            EnemyHP -= attackPoint;
+        }
+        if(EnemyHP == 0 && rankingFlag) {
+            rankingFlag = false;
+            rankingManager.Call_Ranking();
+        }
         StartCoroutine(hitdamage());
         Debug.Log(EnemyHP + "//" + attackPoint);
     }
