@@ -18,6 +18,7 @@ public class TimerManager : MonoBehaviour
     static public int clearminutu;
 
     bool timestop = false;
+    bool endtime = false;
 
     void Start()
     {
@@ -35,9 +36,9 @@ public class TimerManager : MonoBehaviour
                 time -= Time.deltaTime;
             }
         }
-        else if (time == 0)
+        else if (time <= 0)
         {
-            //制限時間切れ ゲームオーバー
+            endtime = true;
         }
         minutu = (int)time / 60;
         second = (int)time % 60;
@@ -80,6 +81,10 @@ public class TimerManager : MonoBehaviour
     public void TimerStop()        //タイマーをストップする関数
     {
         timestop = true;
+    }
+    public bool Getendtime()
+    {
+        return endtime;
     }
 }
 

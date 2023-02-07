@@ -5,14 +5,17 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/unity-simple-ranking/Scenes/Ranking.unity
-    guid: 152244f5855414ac4a3874f14efa583c
+    path: Assets/Production/main.unity
+    guid: 181d3349e3e6e8b4ea71e17b673a459e
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/komyo_yasuyuki/DanmakTest.unity
-    guid: a14b58ff101a6234190af2bf8fab436d
+    path: Assets/Production/TitleScene.unity
+    guid: 97fee5f86a8ff984ebd86f06c4bc807b
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e7f92e6847ceee54e9768171f7492931, type: 2}
