@@ -2,37 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+namespace playermanager
 {
-    [SerializeField] private int LifeStock = 3;
-    [SerializeField] private int Life = 100;
-
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "EnemyBullet")
-    //    {
-    //        Life -= 1;
-    //    }
-    //    if (Life < 1)
-    //    {
-    //        LifeStock -= 1;
-    //        Life = 100;
-    //    }
-    //}
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class PlayerManager : MonoBehaviour
     {
-        if (collision.gameObject.tag == "EnemyBullet")
+        [SerializeField] private float LifeStock = 3;
+        //[SerializeField] private int Life = 100;
+        [SerializeField] GameObject player;
+
+        //void OnCollisionEnter2D(Collision2D collision)
+        //{
+        //    if (collision.gameObject.tag == "EnemyBullet")
+        //    {
+        //        Life -= 1;
+        //    }
+        //    if (Life < 1)
+        //    {
+        //        LifeStock -= 1;
+        //        Life = 100;
+        //    }
+        //}
+        /*private void OnTriggerEnter2D(Collider2D collision)
         {
-            Life -= 1;
+            if (collision.gameObject.tag == "EnemyBullet")
+            {
+                Life -= 1;
+            }
+            if (Life < 1)
+            {
+                LifeStock -= 1;
+                Life = 100;
+            }
+            if(LifeStock == 0)
+            {
+                gameObject.SetActive(false);
+            }
+        }*/
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "EnemyBullet")
+            {
+                LifeStock--;
+                player.SetActive(false);
+                Invoke("Respawn", 3.0f);
+            }
         }
-        if (Life < 1)
+        private void Respawn()
         {
-            LifeStock -= 1;
-            Life = 100;
+            player.SetActive(true);
         }
-        if(LifeStock == 0)
+        public float GetLifeStock()
         {
-            gameObject.SetActive(false);
+            return LifeStock;
         }
     }
 }
