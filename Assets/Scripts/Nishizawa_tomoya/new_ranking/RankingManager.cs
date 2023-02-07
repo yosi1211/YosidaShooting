@@ -13,6 +13,9 @@ public class RankingManager : MonoBehaviour
     [SerializeField]
     string EasyRanking = "Easy_Ranking";
 
+    [SerializeField, Header("TimeManager参照")]
+    TimerManager timerManager;
+
     enum MACHINE_TYPE
     {
         HARD_MACHINE = 0,
@@ -22,6 +25,7 @@ public class RankingManager : MonoBehaviour
 
     public void Call_Ranking()    //ランキングを出すとき呼ぶ
     {
+        timerManager.GameClear();
         switch (Ownmachine_Inform.ownmachine)//渡されてきた自機の情報を入れる
         {
             case (int)MACHINE_TYPE.HARD_MACHINE:         //自機Aの場合

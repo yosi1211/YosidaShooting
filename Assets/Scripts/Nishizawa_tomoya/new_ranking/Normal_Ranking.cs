@@ -103,7 +103,7 @@ public class Normal_Ranking : MonoBehaviour
         //ƒ‰ƒ“ƒLƒ“ƒOŒÄ‚Ño‚µ
         for (int i = 0; i < ranking_key.Length; i++)
         {
-            rankingValue[i] = PlayerPrefs.GetInt(ranking_key[i], 3600);
+            rankingValue[i] = PlayerPrefs.GetInt(ranking_key[i], 180);
             userValue[i] = PlayerPrefs.GetString(Name_ranking_key[i], "---");
         }
     }

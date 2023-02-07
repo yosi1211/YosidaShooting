@@ -106,7 +106,7 @@ public class All_Ranking : MonoBehaviour
         //ランキング呼び出し
         for (int i = 0; i < ranking_key.Length; i++)
         {
-            rankingValue[i] = PlayerPrefs.GetInt(ranking_key[i], 3600);
+            rankingValue[i] = PlayerPrefs.GetInt(ranking_key[i], 180);
             userValue[i] = PlayerPrefs.GetString(Name_ranking_key[i], "---");
         }
     }
@@ -153,8 +153,9 @@ public class All_Ranking : MonoBehaviour
 
     public void closeOnClick()
     {
-        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("All_Ranking");
+        //UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("All_Ranking");
         //タイトルシーンに戻る
-        scenemanager.LoadScene(titleSceneName);
+        Debug.Log("Titleback");
+        scenemanager.LoadScene("TitleScene");
     }
 }
