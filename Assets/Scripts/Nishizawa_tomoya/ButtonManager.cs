@@ -11,6 +11,8 @@ public class ButtonManager : MonoBehaviour
 
     [SerializeField, Header("マシンセレクト画面")]
     GameObject machineSelect_Canvas;
+    [SerializeField, Header("タイトル")]
+    GameObject Title_Canvas;
 
     private void Start()
     {
@@ -19,14 +21,16 @@ public class ButtonManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("start") || Input.GetMouseButtonDown(0))
+        if (/*Input.GetButtonDown("start") ||*/ Input.GetMouseButtonDown(0))
         {
             START_OnClick();
         }
     }
     public void START_OnClick()
     {
+        Debug.Log("自機選択");
         machineSelect_Canvas.SetActive(true);
+        Title_Canvas.SetActive(false);
     }
 
     public void Hardmachine_Select_OnClick()
