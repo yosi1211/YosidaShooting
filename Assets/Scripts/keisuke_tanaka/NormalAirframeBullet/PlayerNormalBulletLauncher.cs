@@ -9,7 +9,9 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     //オブジェクトプール
     [SerializeField] PlayerNormalBulletPoolController objectPool;
     //発射の間隔
-    [SerializeField] float interval;
+    [SerializeField] int interval = 100;
+
+    private int count = 0;
 
     void Start()
     {
@@ -26,7 +28,12 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            _shot();
+            count++;
+            if (count % interval == 0)
+            {
+                count = 0;
+                _shot();
+            }
         }
     }
 
