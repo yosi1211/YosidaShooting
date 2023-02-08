@@ -863,6 +863,7 @@ MonoBehaviour:
   LifeStock: 3
   player: {fileID: 263223016}
   damageFlag: 0
+  BombActive: {fileID: 1951971077}
 --- !u!58 &169201508
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1753,6 +1754,7 @@ MonoBehaviour:
   LifeStock: 3
   player: {fileID: 12730914}
   damageFlag: 0
+  BombActive: {fileID: 1951971077}
 --- !u!58 &981034226
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1831,7 +1833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 992102664}
   m_Layer: 0
-  m_Name: BombCreatePos
+  m_Name: SpreadBombCreatePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2502,7 +2504,7 @@ GameObject:
   - component: {fileID: 1081187849}
   - component: {fileID: 1081187848}
   m_Layer: 0
-  m_Name: bomb
+  m_Name: Homingbomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2933,7 +2935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1292971796
 Transform:
   m_ObjectHideFlags: 0
@@ -2985,7 +2987,7 @@ GameObject:
   - component: {fileID: 1328919855}
   - component: {fileID: 1328919854}
   m_Layer: 0
-  m_Name: bomb
+  m_Name: Spreadbomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3525,7 +3527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1764923479}
   m_Layer: 0
-  m_Name: BombCreatePos
+  m_Name: HomingBombCreatePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3558,7 +3560,7 @@ GameObject:
   - component: {fileID: 1951971078}
   - component: {fileID: 1951971080}
   m_Layer: 0
-  m_Name: SpreadBulletAframeCreateBombPos
+  m_Name: CreateBombPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3580,8 +3582,8 @@ MonoBehaviour:
   - {fileID: 114751970}
   - {fileID: 1058579533}
   - {fileID: 1067735115}
-  PrefabBomb: {fileID: 1328919852}
-  firingBomb: {fileID: 992102663}
+  PrefabBomb: {fileID: 8560447436330263794}
+  firingBomb: {fileID: 2008930659}
 --- !u!4 &1951971079
 Transform:
   m_ObjectHideFlags: 0
@@ -3760,6 +3762,7 @@ MonoBehaviour:
   LifeStock: 3
   player: {fileID: 1002608414}
   damageFlag: 0
+  BombActive: {fileID: 1951971077}
 --- !u!58 &1975831448
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3838,7 +3841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2008930660}
   m_Layer: 0
-  m_Name: BombCreatePos
+  m_Name: NormalBombCreatePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4342,7 +4345,7 @@ GameObject:
   - component: {fileID: 7929490249172611374}
   - component: {fileID: 8560447436330263795}
   m_Layer: 0
-  m_Name: bomb
+  m_Name: Normalbomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
