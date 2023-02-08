@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Production/TitleScene.unity
     guid: 97fee5f86a8ff984ebd86f06c4bc807b
+  - enabled: 1
+    path: Assets/Production/MainSystemTest.unity
+    guid: e981192a500ea214fb636b0cc308ffde
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e7f92e6847ceee54e9768171f7492931, type: 2}
