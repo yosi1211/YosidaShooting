@@ -11,8 +11,10 @@ public class PlayerBulletLauncher : MonoBehaviour
     //”­ŽË‚ÌŠÔŠu
     [SerializeField] float interval;
 
+    private int deleyCount = 0; 
     void Start()
     {
+        
     }
     void _shot()
     {
@@ -22,11 +24,19 @@ public class PlayerBulletLauncher : MonoBehaviour
     {
         disposable.Dispose();
     }
-    public void Update()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if(deleyCount == 0)
         {
-            _shot();
+            if (Input.GetKey(KeyCode.Space))
+            {
+                _shot();
+                deleyCount = 250;
+            }
+        }
+        if (deleyCount != 0)
+        {
+            deleyCount--;
         }
     }
 }
