@@ -14,9 +14,36 @@ namespace playermanager
 
         [SerializeField, Header("無敵時間")]
         float invincibleTime = 1.0f;
+        [SerializeField, Header("プレイヤーのスプライト")]
+        SpriteRenderer sp;
+        private int invisible = 0;
+        bool invincible = false;
+        int timer = 0;
         void Start()
         {
-            damageFlag= false;
+            damageFlag = false;
+        }
+
+        private void Update()
+        {
+            if (invincible)
+            {
+                timer++;
+                if (timer % 50 > 25)
+                {
+                    invisible = 1;
+                }
+                else
+                {
+                    invisible = 0;
+                }
+            }
+            else
+            {
+                timer = 0;
+            }
+            sp.color = new Color(1f, 1f, 1f, invisible);
+            invisible = 1;
         }
 
         //void OnCollisionEnter2D(Collision2D collision)
@@ -59,8 +86,9 @@ namespace playermanager
             }
         }
         private void Respawn()
-        {          
+        {
             player.SetActive(true);
+            invincible = true;
             BombActive.SetActive(true);
             Invoke("Invisible", invincibleTime);
         }
@@ -71,6 +99,7 @@ namespace playermanager
         private void Invisible()
         {
             damageFlag = false;
+            invincible = false;
         }
     }
 }
