@@ -8,42 +8,20 @@ public class ZankiText : MonoBehaviour
 {
     [SerializeField]
     TextMeshProUGUI Zankitext;
-    [SerializeField]
-    PlayerManager horminglife;
-    [SerializeField]
-    PlayerManager normallife;
-    [SerializeField]
-    PlayerManager spreadlife;
-    [SerializeField]
-    GameObject hormingeir;
-    [SerializeField]
-    GameObject normaleir;
-    [SerializeField]
-    GameObject spreadeir;
-    PlayerManager life;
+    [SerializeField,Header("0:ハード,1:ノーマル,2:イージー")]
+    PlayerManager[] playermanager = new PlayerManager[3];
 
     void Start()
     {
         Zankitext = Zankitext.GetComponent<TextMeshProUGUI>();
-        if (hormingeir.activeSelf)
+        for(int i=0;i < playermanager.Length;i++)
         {
-            horminglife = horminglife.GetComponent<PlayerManager>();
-            life = horminglife;
-        }
-        if (normaleir.activeSelf)
-        {
-            normallife = normallife.GetComponent<PlayerManager>();
-            life = normallife;
-        }
-        if (spreadeir.activeSelf)
-        {
-            spreadlife = spreadlife.GetComponent<PlayerManager>();
-            life = spreadlife;
+            playermanager[i] = playermanager[i].GetComponent<PlayerManager>();
         }
     }
 
     void Update()
     {
-        Zankitext.text = life.GetLifeStock().ToString();
+        Zankitext.text = "×" + playermanager[Ownmachine_Inform.ownmachine].GetLifeStock().ToString();
     }
 }
