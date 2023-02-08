@@ -9,11 +9,16 @@ namespace playermanager
         [SerializeField] private float LifeStock = 3;
         //[SerializeField] private int Life = 100;
         [SerializeField] GameObject player;
-        [SerializeField] bool damageFlag = false;
+        [SerializeField] bool damageFlag;
+
+        void Start()
+        {
+            damageFlag= false;
+        }
 
         //void OnCollisionEnter2D(Collision2D collision)
         //{
-        //    if (collision.gameObject.tag == "EnemyBullet")
+        //    if (collision.gameObject.tag == "EnemyBullet" && !damageFlag)
         //    {
         //        Life -= 1;
         //    }
@@ -25,7 +30,7 @@ namespace playermanager
         //}
         /*private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "EnemyBullet")
+            if (collision.gameObject.tag == "EnemyBullet" && !damageFlag)
             {
                 Life -= 1;
             }
@@ -41,9 +46,8 @@ namespace playermanager
         }*/
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "EnemyBullet" && damageFlag == false)
+            if (collision.gameObject.tag == "EnemyBullet" && !damageFlag)
             {
-                Debug.Log("‚­‚ç‚Á‚½");
                 damageFlag = true;
                 LifeStock--;
                 player.SetActive(false);
@@ -52,7 +56,7 @@ namespace playermanager
         }
         private void Respawn()
         {
-            damageFlag = false;
+            damageFlag= false;
             player.SetActive(true);
         }
         public float GetLifeStock()
