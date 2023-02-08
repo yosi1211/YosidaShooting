@@ -35,6 +35,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField, Header("RankingéQè∆")]
     RankingManager rankingManager;
 
+    private Animator animator;
+
     private bool rankingFlag = true;
 
     private float randomValue;
@@ -49,6 +51,7 @@ public class EnemyManager : MonoBehaviour
     }
     void Start()
     {
+        animator = GetComponent<Animator>();
         MovePattern();
     }
     void Update()
@@ -133,9 +136,11 @@ public class EnemyManager : MonoBehaviour
         {
             EnemyHP -= attackPoint;
         }
-        if(EnemyHP == 0 && rankingFlag) {
+        if (EnemyHP <= 0 && rankingFlag)
+        {
             rankingFlag = false;
             rankingManager.Call_Ranking();
+            StartCoroutine(machinebreak());
         }
         StartCoroutine(hitdamage());
         Debug.Log(EnemyHP + "//" + attackPoint);
@@ -145,6 +150,13 @@ public class EnemyManager : MonoBehaviour
         enemyimg.color = Color.red;
         yield return new WaitForSeconds(0.5f);
         enemyimg.color = Color.white;
+    }
+
+    private IEnumerator machinebreak()
+    {
+        animator.SetBool("expl", true);
+        yield return new WaitForSeconds(0.8f);
+        gameObject.SetActive(false);
     }
     private void RandomMove()
     {

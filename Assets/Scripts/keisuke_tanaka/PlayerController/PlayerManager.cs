@@ -12,6 +12,8 @@ namespace playermanager
         [SerializeField] bool damageFlag;
         [SerializeField] GameObject BombActive;
 
+        [SerializeField, Header("–³“GŽžŠÔ")]
+        float invincibleTime = 1.0f;
         void Start()
         {
             damageFlag= false;
@@ -57,12 +59,10 @@ namespace playermanager
             }
         }
         private void Respawn()
-        {
-            damageFlag = false;
+        {          
             player.SetActive(true);
             BombActive.SetActive(true);
-            player.tag = "Dead";
-            Invoke("Invisible", 3.0f);
+            Invoke("Invisible", invincibleTime);
         }
         public float GetLifeStock()
         {
@@ -70,7 +70,7 @@ namespace playermanager
         }
         private void Invisible()
         {
-            player.tag = "Player";
+            damageFlag = false;
         }
     }
 }
