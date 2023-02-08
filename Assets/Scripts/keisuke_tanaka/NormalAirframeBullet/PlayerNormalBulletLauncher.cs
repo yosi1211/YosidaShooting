@@ -11,7 +11,7 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     //”­ŽË‚ÌŠÔŠu
     [SerializeField] int interval = 100;
 
-    private int count = 0;
+    private float count = 0;
 
     void Start()
     {
@@ -28,12 +28,16 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            count++;
             if (count % interval == 0)
             {
                 count = 0;
                 _shot();
             }
+            count++;
+        }
+        else
+        {
+            count = 0;
         }
     }
 

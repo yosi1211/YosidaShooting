@@ -864,6 +864,7 @@ MonoBehaviour:
   player: {fileID: 263223016}
   damageFlag: 0
   BombActive: {fileID: 1951971077}
+  invincibleTime: 1
 --- !u!58 &169201508
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1755,6 +1756,7 @@ MonoBehaviour:
   player: {fileID: 12730914}
   damageFlag: 0
   BombActive: {fileID: 1951971077}
+  invincibleTime: 1
 --- !u!58 &981034226
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3763,6 +3765,7 @@ MonoBehaviour:
   player: {fileID: 1002608414}
   damageFlag: 0
   BombActive: {fileID: 1951971077}
+  invincibleTime: 1
 --- !u!58 &1975831448
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3881,6 +3884,7 @@ GameObject:
   - component: {fileID: 2026577813}
   - component: {fileID: 2026577806}
   - component: {fileID: 2026577807}
+  - component: {fileID: 2026577814}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -4111,6 +4115,26 @@ MonoBehaviour:
   objectPool: {fileID: 1673849063}
   interval: 0.2
   PItem: {fileID: 1729851926}
+--- !u!95 &2026577814
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026577800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c0a11446be10a34ebdcd30289034b5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2063395287
 GameObject:
   m_ObjectHideFlags: 0
