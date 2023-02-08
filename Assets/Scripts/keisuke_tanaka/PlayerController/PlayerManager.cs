@@ -58,10 +58,16 @@ namespace playermanager
         {
             damageFlag= false;
             player.SetActive(true);
+            player.tag = "Dead";
+            Invoke("Invisible", 3.0f);
         }
         public float GetLifeStock()
         {
             return LifeStock;
+        }
+        private void Invisible()
+        {
+            player.tag = "Player";
         }
     }
 }
