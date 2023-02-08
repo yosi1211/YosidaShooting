@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &12730915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +239,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
     m_ActionName: Player/Bomb[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a994220-abdf-4ea1-979b-0e274b457ce7
+    m_ActionName: Player/HomingBullet[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -990,7 +994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &263223017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,6 +1088,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
     m_ActionName: Player/Bomb[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a994220-abdf-4ea1-979b-0e274b457ce7
+    m_ActionName: Player/HomingBullet[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2728,7 +2736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1156509222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,7 +2959,7 @@ MonoBehaviour:
   targetMobEnemy3: {fileID: 0}
   targetMobEnemy4: {fileID: 0}
   bullet: {fileID: 1014145177227836825, guid: d3b7329cce782c84aa24661efc56a21f, type: 3}
-  maxCount: 2
+  maxCount: 12
   density: 10
 --- !u!1 &1328919852
 GameObject:
@@ -3685,6 +3693,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a994220-abdf-4ea1-979b-0e274b457ce7
+    m_ActionName: Player/HomingBullet[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
