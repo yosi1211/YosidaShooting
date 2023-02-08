@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 public class BombInstantiate : MonoBehaviour
 {
     [SerializeField] private List<GameObject> bombList;
-    [SerializeField] GameObject PrefabBomb;
-    [SerializeField] GameObject firingBomb;
+    [SerializeField,Header("使用する機体の子オブジェクトのbombをここに入れる")]
+    private GameObject PrefabBomb;
+    [SerializeField,Header("使用する機体の子オブジェクトのBombCreatePosをここに入れる")]
+    private GameObject firingBomb;
 
     private int ButtonFlag = 1;
     // Start is called before the first frame update
