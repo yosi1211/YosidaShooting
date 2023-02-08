@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 66e2bee867275422c9de0a02da52d95b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.06289297, g: 1, b: 0.7339895, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPool: {fileID: 4941730582296395659}
   interval: 0
+  span: 3
 --- !u!111 &1338345896538408963
 Animation:
   m_ObjectHideFlags: 0
