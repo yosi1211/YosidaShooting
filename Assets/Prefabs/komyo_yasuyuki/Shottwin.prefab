@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5151467286387400277}
   - component: {fileID: 1700138004948731060}
   - component: {fileID: -7987986671281518660}
+  - component: {fileID: 4418134263668743}
   m_Layer: 0
   m_Name: Shottwin
   m_TagString: EnemyBullet
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 919523073204586999}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0.4584, y: 0.9169, z: 0}
-  m_LocalScale: {x: 1.9754, y: 1.9754, z: 1.9754}
+  m_LocalScale: {x: 6.920327, y: 3.4504983, z: 3.0928838}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,4 +98,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba7e0283475cce46b6a57ad87fcf66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
+--- !u!61 &4418134263668743
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919523073204586999}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.075300485}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.94, y: 1.88}
+    newSize: {x: 0.94, y: 1.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.06651484, y: 0.9462747}
+  m_EdgeRadius: 0
