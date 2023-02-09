@@ -49,6 +49,7 @@ namespace PoolControler_Option
                 if (Ownmachine_Inform.ownmachine == 0)
                 {
                     //ägéUíeã@ëÃê∂ê¨
+                    Debug.Log("ägéUíe");
                     SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
                     tmpOption.Init(playerList[0]);
                     //QueueÇ…í«â¡
@@ -58,6 +59,7 @@ namespace PoolControler_Option
                 if (Ownmachine_Inform.ownmachine == 1)
                 {
                     //ägéUíeã@ëÃê∂ê¨
+                    Debug.Log("ÉmÅ[É}Éãíe");
                     SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
                     tmpOption.Init(playerList[1]);
                     //QueueÇ…í«â¡
@@ -67,6 +69,7 @@ namespace PoolControler_Option
                 if (Ownmachine_Inform.ownmachine == 2)
                 {
                     //ägéUíeã@ëÃê∂ê¨
+                    Debug.Log("ÉzÅ[É~ÉìÉOíe");
                     SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
                     tmpOption.Init(playerList[2]);
                     //QueueÇ…í«â¡

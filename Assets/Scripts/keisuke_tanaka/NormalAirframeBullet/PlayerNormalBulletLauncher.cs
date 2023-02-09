@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using UnityEngine.InputSystem;
 
 public class PlayerNormalBulletLauncher : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     [SerializeField] int interval = 100;
 
     private float count = 0;
+    bool isPressed;
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (isPressed)
         {
             if (count % interval == 0)
             {
@@ -39,6 +41,10 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
         {
             count = 0;
         }
+    }
+    public void InputBullet(InputAction.CallbackContext context)
+    {
+        isPressed = Keyboard.current.spaceKey.IsPressed();
     }
 
 }

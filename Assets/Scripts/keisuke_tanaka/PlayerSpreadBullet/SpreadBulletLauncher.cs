@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SpreadBulletLauncher : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SpreadBulletLauncher : MonoBehaviour
     public int m_shotCount; // 弾の発射数
     public float m_shotInterval; // 弾の発射間隔（秒）
     public float angle;
+    bool isPressed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,7 @@ public class SpreadBulletLauncher : MonoBehaviour
 
         // 弾の発射タイミングを管理するタイマーをリセットする
         m_shotTimer = 0;
-        if (Input.GetKey(KeyCode.Space)) 
+        if (isPressed) 
         {
             // 弾を発射する
             ShootNWay(angle, m_shotAngleRange, m_shotSpeed, m_shotCount);
@@ -58,4 +61,9 @@ public class SpreadBulletLauncher : MonoBehaviour
             }
         }
     }
+    public void InputBullet(InputAction.CallbackContext context)
+    {
+        isPressed = Keyboard.current.spaceKey.IsPressed();
+    }
+
 }
