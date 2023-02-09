@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerHomingBulletController : MonoBehaviour
 {
+    [SerializeField, Header("ダメージ")]
+    int damage = 10;
     //オブジェクトプール用コントローラー格納用変数宣言
     PlayerBulletPoolController objectPool;
     public float speed;
@@ -43,7 +45,7 @@ public class PlayerHomingBulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
+            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(damage);
             objectPool.Collect(this);
         }
         if (collision.gameObject.tag == "EnemyMob")
