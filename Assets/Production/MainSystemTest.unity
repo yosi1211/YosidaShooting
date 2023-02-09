@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 1292971797}
-  interval: 20
+  interval: 30
 --- !u!50 &12730921
 Rigidbody2D:
   serializedVersion: 4
@@ -3251,7 +3251,7 @@ MonoBehaviour:
   targetMobEnemy3: {fileID: 0}
   targetMobEnemy4: {fileID: 0}
   bullet: {fileID: 1014145177227836825, guid: d3b7329cce782c84aa24661efc56a21f, type: 3}
-  maxCount: 100
+  maxCount: 300
   density: 5
 --- !u!1 &1328919852
 GameObject:
