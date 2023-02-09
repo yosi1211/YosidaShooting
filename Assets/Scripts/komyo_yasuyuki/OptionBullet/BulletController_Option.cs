@@ -3,6 +3,8 @@ using PoolControler_OptionB;
 
 public class BulletController_Option : MonoBehaviour
 {
+    [SerializeField, Header("ダメージ")]
+    int damage = 10;
     //オブジェクトプール用コントローラー格納用変数宣言
     ObjectPoolController_OptionBullet objectPool;
     public float speed;//速度
@@ -28,7 +30,7 @@ public class BulletController_Option : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             objectPool.Collect(this);
-            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
+            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(damage);
         }
     }
 

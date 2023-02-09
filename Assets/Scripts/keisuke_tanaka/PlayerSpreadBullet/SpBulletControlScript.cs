@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpBulletControlScript : MonoBehaviour
 {
+    [SerializeField, Header("É_ÉÅÅ[ÉW")]
+    int damage = 10;
     private Vector3 velocity;
 
     void Update()
@@ -24,7 +26,7 @@ public class SpBulletControlScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
+            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(damage);
         }
     }
 }
