@@ -236,13 +236,45 @@ MonoBehaviour:
     m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1951971078}
+        m_TargetAssemblyTypeName: BombInstantiate, Assembly-CSharp
+        m_MethodName: InputBomb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
     m_ActionName: Player/Bomb[/Keyboard/b]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 12730920}
+        m_TargetAssemblyTypeName: PlayerBulletLauncher, Assembly-CSharp
+        m_MethodName: InputBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0a994220-abdf-4ea1-979b-0e274b457ce7
     m_ActionName: Player/HomingBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2876d00d-f5a6-4a08-ba6c-921fb6a3d3d3
+    m_ActionName: Player/NormalBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 23dffbc6-c0d7-435b-947b-09b2cf93ed3b
+    m_ActionName: Player/SpreadBullet[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -344,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 1292971797}
-  interval: 30
+  interval: 250
 --- !u!50 &12730921
 Rigidbody2D:
   serializedVersion: 4
@@ -696,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &114751971
 RectTransform:
   m_ObjectHideFlags: 0
@@ -761,19 +793,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114751973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1951971078}
-        m_TargetAssemblyTypeName: BombInstantiate, Assembly-CSharp
-        m_MethodName: BombCreate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &114751973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,53 +952,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &244582015
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 244582017}
-  - component: {fileID: 244582016}
-  m_Layer: 0
-  m_Name: HomingBulletAframeCreateBombPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &244582016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244582015}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d5ad65223fa134b9965e690eb239f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombList: []
-  PrefabBomb: {fileID: 1081187846}
-  firingBomb: {fileID: 1764923478}
---- !u!4 &244582017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244582015}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.8748, z: 0.92399997}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263223016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,13 +1064,45 @@ MonoBehaviour:
     m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1951971078}
+        m_TargetAssemblyTypeName: BombInstantiate, Assembly-CSharp
+        m_MethodName: InputBomb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
     m_ActionName: Player/Bomb[/Keyboard/b]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 0a994220-abdf-4ea1-979b-0e274b457ce7
     m_ActionName: Player/HomingBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 263223023}
+        m_TargetAssemblyTypeName: PlayerNormalBulletLauncher, Assembly-CSharp
+        m_MethodName: InputBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2876d00d-f5a6-4a08-ba6c-921fb6a3d3d3
+    m_ActionName: Player/NormalBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 23dffbc6-c0d7-435b-947b-09b2cf93ed3b
+    m_ActionName: Player/SpreadBullet[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1641,7 +1646,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &783737645
 MonoBehaviour:
@@ -1691,7 +1696,7 @@ Transform:
   - {fileID: 614752879}
   - {fileID: 1966582129}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843310005
 GameObject:
@@ -2241,13 +2246,45 @@ MonoBehaviour:
     m_ActionId: 9c5d2eb2-85b3-492e-a580-cc861d8570fd
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1951971078}
+        m_TargetAssemblyTypeName: BombInstantiate, Assembly-CSharp
+        m_MethodName: InputBomb
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 8ad572ce-3373-4836-bb84-1a4582e1b07d
     m_ActionName: Player/Bomb[/Keyboard/b]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 0a994220-abdf-4ea1-979b-0e274b457ce7
     m_ActionName: Player/HomingBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2876d00d-f5a6-4a08-ba6c-921fb6a3d3d3
+    m_ActionName: Player/NormalBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1002608420}
+        m_TargetAssemblyTypeName: SpreadBulletLauncher, Assembly-CSharp
+        m_MethodName: InputBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 23dffbc6-c0d7-435b-947b-09b2cf93ed3b
+    m_ActionName: Player/SpreadBullet[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2370,7 +2407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shotPrefab: {fileID: -531646215561706823, guid: 342feeeaf5d190d40a50798ff33e7324, type: 3}
-  m_shotSpeed: 0.13
+  m_shotSpeed: 0.04
   m_shotAngleRange: 50
   m_shotTimer: 0
   m_shotCount: 5
@@ -2474,19 +2511,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1058579536}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2116929572}
-        m_TargetAssemblyTypeName: BombInstantiate, Assembly-CSharp
-        m_MethodName: BombCreate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1058579536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,19 +2633,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1067735118}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 244582016}
-        m_TargetAssemblyTypeName: BombInstantiate, Assembly-CSharp
-        m_MethodName: BombCreate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1067735118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3211,7 +3224,7 @@ GameObject:
   - component: {fileID: 1292971796}
   - component: {fileID: 1292971797}
   m_Layer: 0
-  m_Name: PlayerBulletPool
+  m_Name: PlayerHomingBulletPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3443,7 +3456,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1391176743
 MonoBehaviour:
@@ -3493,7 +3506,7 @@ Transform:
   m_Children:
   - {fileID: 1729851927}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1540046596
 MonoBehaviour:
@@ -4025,7 +4038,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951971077
 GameObject:
@@ -4061,8 +4074,14 @@ MonoBehaviour:
   - {fileID: 114751970}
   - {fileID: 1058579533}
   - {fileID: 1067735115}
-  PrefabBomb: {fileID: 8560447436330263794}
-  firingBomb: {fileID: 2008930659}
+  PrefabBomb:
+  - {fileID: 1328919852}
+  - {fileID: 8560447436330263794}
+  - {fileID: 1081187846}
+  firingBomb:
+  - {fileID: 992102663}
+  - {fileID: 2008930659}
+  - {fileID: 1764923478}
 --- !u!4 &1951971079
 Transform:
   m_ObjectHideFlags: 0
@@ -4085,7 +4104,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951971077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -4104,19 +4123,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 12730916}
-        m_TargetAssemblyTypeName: PlayerContrllerInputSystem, Assembly-CSharp
-        m_MethodName: PlayerInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 5580386e-66f2-4f8f-99d5-93c9af050423
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -4187,6 +4194,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0a994220-abdf-4ea1-979b-0e274b457ce7
     m_ActionName: Player/HomingBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2876d00d-f5a6-4a08-ba6c-921fb6a3d3d3
+    m_ActionName: Player/NormalBullet[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 23dffbc6-c0d7-435b-947b-09b2cf93ed3b
+    m_ActionName: Player/SpreadBullet[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -4754,7 +4769,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2063395289
 MonoBehaviour:
@@ -4770,53 +4785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 779377281}
   limittime: 180
---- !u!1 &2116929571
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2116929573}
-  - component: {fileID: 2116929572}
-  m_Layer: 0
-  m_Name: NormalAirframeCreateBombPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2116929572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2116929571}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d5ad65223fa134b9965e690eb239f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombList: []
-  PrefabBomb: {fileID: 8560447436330263794}
-  firingBomb: {fileID: 2008930659}
---- !u!4 &2116929573
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2116929571}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 555.18634, y: 116.763794, z: -2.2065618}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1377112126856036510
 Transform:
   m_ObjectHideFlags: 0

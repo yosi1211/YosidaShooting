@@ -1,14 +1,14 @@
 {
-    "name": "PlayerInput",
+    "name": "titlemove",
     "maps": [
         {
             "name": "Player",
-            "id": "d976c2e0-62d7-4593-a9de-78944f1155f2",
+            "id": "6a694694-0cb2-4bc6-a891-21d1f2469bba",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "5580386e-66f2-4f8f-99d5-93c9af050423",
+                    "id": "43ec70a6-0464-4cee-85d8-f981c6ff2d44",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,7 +17,7 @@
                 {
                     "name": "Look",
                     "type": "Value",
-                    "id": "4e710fbb-d2d0-4a85-80fa-f60193e2dc74",
+                    "id": "eb3899c1-3792-4a08-af71-2c1835d861e1",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -26,43 +26,16 @@
                 {
                     "name": "Fire",
                     "type": "Button",
-                    "id": "ad6a0735-497a-4557-8722-58c88dabc1e2",
+                    "id": "6618d662-3015-41be-a451-4ba8195e5809",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Bomb",
+                    "name": "tap",
                     "type": "Button",
-                    "id": "8ad572ce-3373-4836-bb84-1a4582e1b07d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "HomingBullet",
-                    "type": "Button",
-                    "id": "0a994220-abdf-4ea1-979b-0e274b457ce7",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "NormalBullet",
-                    "type": "Button",
-                    "id": "2876d00d-f5a6-4a08-ba6c-921fb6a3d3d3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SpreadBullet",
-                    "type": "Button",
-                    "id": "23dffbc6-c0d7-435b-947b-09b2cf93ed3b",
+                    "id": "c1f90600-1ae6-49cd-8885-a3b5ab52b46d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -292,89 +265,56 @@
                 },
                 {
                     "name": "",
-                    "id": "6cd0d0b6-ab99-48bf-9ece-4951b2f5b6ce",
-                    "path": "<Keyboard>/#(B)",
+                    "id": "2a4cfa9f-67d4-45d4-a00e-a51ca8076804",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Bomb",
+                    "groups": "Gamepad",
+                    "action": "tap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "fb27f915-5b03-49ba-800f-12760d6afa71",
+                    "id": "cc934ab6-b36b-4aea-8c09-24df5864716f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25b500a8-8f21-4547-907e-0ce3ef1cf7f0",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65d52ebf-d080-4814-a37f-25fb224e921f",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26e8b2df-d897-4880-843e-77ed010284b6",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Bomb",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "99ca4faa-5219-4d8b-b84f-946bb8184441",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HomingBullet",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2b0cbc6f-af68-4cbc-b63e-773462b4f013",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HomingBullet",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "313636cc-fc2b-4a33-89ab-80d746017cf7",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NormalBullet",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "47e921ee-dd26-42ff-ad10-0bb90369b049",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NormalBullet",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5884dd94-56d5-4851-ba4e-b648f1304888",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SpreadBullet",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "530dda6e-5df8-4b21-a3eb-967cfb247318",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SpreadBullet",
+                    "action": "tap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -382,12 +322,12 @@
         },
         {
             "name": "UI",
-            "id": "217c5351-0479-4f70-918b-0838cd71590a",
+            "id": "ae0b0a2b-8d63-4324-a4ea-570290ba0fbe",
             "actions": [
                 {
                     "name": "Navigate",
                     "type": "PassThrough",
-                    "id": "b7b986cf-8327-4c85-aa15-237c4f19698c",
+                    "id": "0f8e7b0b-fcae-431b-b6cc-2ba4149461f2",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -396,7 +336,7 @@
                 {
                     "name": "Submit",
                     "type": "Button",
-                    "id": "e3ac7a7a-33b5-4ced-bb17-fe0b8647669f",
+                    "id": "06ec4d56-c562-4f7a-8b12-dc2c0f0b1b18",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -405,7 +345,7 @@
                 {
                     "name": "Cancel",
                     "type": "Button",
-                    "id": "ebf1f018-f617-4cd6-b20b-0c5b8549ea5f",
+                    "id": "1dc75566-3669-40eb-a07c-300b8bc8377e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -414,7 +354,7 @@
                 {
                     "name": "Point",
                     "type": "PassThrough",
-                    "id": "8cc52b30-3825-43ca-937f-a5ffa86e55f8",
+                    "id": "da26076d-b545-4835-8cc3-2c716b2593a6",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -423,7 +363,7 @@
                 {
                     "name": "Click",
                     "type": "PassThrough",
-                    "id": "2fcd127a-f261-4889-a0c7-b2fd89e60b80",
+                    "id": "34a0bd22-49cc-4615-8844-94d63bc2a450",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -432,7 +372,7 @@
                 {
                     "name": "ScrollWheel",
                     "type": "PassThrough",
-                    "id": "1eee1c33-ce3d-4e2e-a2a5-36de32c8896b",
+                    "id": "79917f09-e9f3-4cff-b101-b90a015417a7",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -441,7 +381,7 @@
                 {
                     "name": "MiddleClick",
                     "type": "PassThrough",
-                    "id": "c397986c-6766-4299-b183-49e38001e1f3",
+                    "id": "c6ef77ea-caba-4103-b627-c054f93a21e1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -450,7 +390,7 @@
                 {
                     "name": "RightClick",
                     "type": "PassThrough",
-                    "id": "a1e7dc94-8ebd-4c4c-9fac-a775e423cc6b",
+                    "id": "13a72322-6608-4fec-83bf-b5faf88fd589",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -459,7 +399,7 @@
                 {
                     "name": "TrackedDevicePosition",
                     "type": "PassThrough",
-                    "id": "e82a221c-8443-4f2e-9d9f-d30b6304a973",
+                    "id": "dc0ab6c4-b268-4c52-817e-a0ef9809608b",
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
@@ -468,7 +408,7 @@
                 {
                     "name": "TrackedDeviceOrientation",
                     "type": "PassThrough",
-                    "id": "9c5d2eb2-85b3-492e-a580-cc861d8570fd",
+                    "id": "88180471-8cf3-4b83-83bd-d2ba20806019",
                     "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": "",

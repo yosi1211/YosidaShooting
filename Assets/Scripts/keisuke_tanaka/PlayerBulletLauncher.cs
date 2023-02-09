@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
-
+using UnityEngine.InputSystem;
 public class PlayerBulletLauncher : MonoBehaviour
 {
     CompositeDisposable disposable = new();
@@ -10,7 +10,8 @@ public class PlayerBulletLauncher : MonoBehaviour
     [SerializeField] PlayerBulletPoolController objectPool;
     //”­ŽË‚ÌŠÔŠu
     [SerializeField] int interval;
-    private int deleyCount = 0; 
+    private int deleyCount = 0;
+    bool isPressed;
     void Start()
     {
         
@@ -27,15 +28,34 @@ public class PlayerBulletLauncher : MonoBehaviour
     {
         if(deleyCount == 0)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (isPressed)
             {
                 _shot();
                 deleyCount = interval;
             }
         }
-        if (deleyCount != 0)
+        if(deleyCount != 0)
         {
             deleyCount--;
         }
+    }
+    //void BulletCreate()
+    //{
+    //    if (deleyCount == 0)
+    //    {
+    //        //if (Input.GetKey(KeyCode.Space))
+    //        //{
+    //            _shot();
+    //            deleyCount = interval;
+    //        //}
+    //    }
+    //    if (deleyCount != 0)
+    //    {
+    //        deleyCount--;
+    //    }
+    //}
+    public void InputBullet(InputAction.CallbackContext context)
+    {
+        isPressed = Keyboard.current.spaceKey.IsPressed();
     }
 }
