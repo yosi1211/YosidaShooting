@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 1292971797}
-  interval: 1
+  interval: 20
 --- !u!50 &12730921
 Rigidbody2D:
   serializedVersion: 4

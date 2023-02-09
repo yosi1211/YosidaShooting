@@ -52,12 +52,4 @@ public class OptionSummon : MonoBehaviour
         }).AddTo(disposable);
         shotLimit.OnNext(_Limit);
     }
-    //テスト用
-    public void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SetLimit(1);
-        //}
-    }
 }

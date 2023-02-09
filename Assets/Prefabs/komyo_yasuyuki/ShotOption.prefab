@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 99293453909902682}
   m_Layer: 0
   m_Name: ShotOption
-  m_TagString: EnemyBullet
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918150801921521160}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22805244, y: 0.22805244, z: 0.22805244}
+  m_LocalPosition: {x: 0.5878, y: -3.6701, z: 0}
+  m_LocalScale: {x: 4.1321397, y: 4.1321397, z: 4.1321397}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab6afa23b763004880ddf6c87b03762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 15
