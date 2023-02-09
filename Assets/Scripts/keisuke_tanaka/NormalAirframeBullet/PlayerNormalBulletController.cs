@@ -31,7 +31,7 @@ public class PlayerNormalBulletController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             objectPool.Collect(this);
-            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(10);
+            collision.gameObject.GetComponent<EnemyManager>().EnemyHPManager(5);
         }
     }
     public void ShowInStage(Vector3 _pos/*, Quaternion rot*/)
