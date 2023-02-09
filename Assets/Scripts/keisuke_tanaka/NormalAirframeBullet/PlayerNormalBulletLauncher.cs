@@ -30,6 +30,7 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     {
         if (isPressed)
         {
+            Debug.Log("‰Ÿ‚³‚ê‚½");
             if (count % interval == 0)
             {
                 count = 0;
