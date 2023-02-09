@@ -21,7 +21,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Update()
     {
-        if (/*Input.GetButtonDown("start") ||*/ Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("start") || Input.GetMouseButtonDown(0))
         {
             START_OnClick();
         }
