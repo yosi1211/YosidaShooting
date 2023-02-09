@@ -5,9 +5,10 @@ namespace PoolControler_Option
 {
     public class ObjectPoolController_Option : MonoBehaviour
     {
+        [SerializeField] private List<GameObject> playerList;
         //player‚Ìæ“¾ 
-        [SerializeField]
-        private GameObject player;
+        //[SerializeField]
+        //private GameObject player;
         //ƒŠƒXƒg‚Ìæ“¾
         List<SummonOptionController> _SummonOL;
         int listCount = 0;
@@ -39,11 +40,40 @@ namespace PoolControler_Option
             //ƒIƒvƒVƒ‡ƒ“‚ğ¶¬
             for (int i = 0; i < maxCount; i++)
             {
-                //¶¬
-                SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
-                tmpOption.Init(player);
-                //Queue‚É’Ç‰Á
-                optionQueue.Enqueue(tmpOption);
+                //ŠgU’e‹@‘Ì¶¬
+                //SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
+                //tmpOption.Init(player);
+                ////Queue‚É’Ç‰Á
+                //optionQueue.Enqueue(tmpOption);
+
+                if (Ownmachine_Inform.ownmachine == 0)
+                {
+                    //ŠgU’e‹@‘Ì¶¬
+                    SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
+                    tmpOption.Init(playerList[0]);
+                    //Queue‚É’Ç‰Á
+                    optionQueue.Enqueue(tmpOption);
+
+                }
+                if (Ownmachine_Inform.ownmachine == 1)
+                {
+                    //ŠgU’e‹@‘Ì¶¬
+                    SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
+                    tmpOption.Init(playerList[1]);
+                    //Queue‚É’Ç‰Á
+                    optionQueue.Enqueue(tmpOption);
+
+                }
+                if (Ownmachine_Inform.ownmachine == 2)
+                {
+                    //ŠgU’e‹@‘Ì¶¬
+                    SummonOptionController tmpOption = Instantiate(option, setPos, setRot, transform);
+                    tmpOption.Init(playerList[2]);
+                    //Queue‚É’Ç‰Á
+                    optionQueue.Enqueue(tmpOption);
+
+                }
+
             }
         }
         //‘İ‚µo‚·ˆ—
