@@ -12,6 +12,7 @@ public class PlayerBulletLauncher : MonoBehaviour
     [SerializeField] int interval;
     private int deleyCount = 0;
     bool isPressed;
+    bool PadIsPressed;
     void Start()
     {
         
@@ -28,7 +29,7 @@ public class PlayerBulletLauncher : MonoBehaviour
     {
         if(deleyCount == 0)
         {
-            if (isPressed)
+            if (PadIsPressed)
             {
                 _shot();
                 deleyCount = interval;
@@ -56,6 +57,7 @@ public class PlayerBulletLauncher : MonoBehaviour
     //}
     public void InputBullet(InputAction.CallbackContext context)
     {
-        isPressed = Keyboard.current.spaceKey.IsPressed();
+        //isPressed = Keyboard.current.spaceKey.IsPressed();
+        PadIsPressed = Gamepad.current.buttonEast.IsPressed();
     }
 }

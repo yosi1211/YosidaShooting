@@ -14,6 +14,7 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
 
     private float count = 0;
     bool isPressed;
+    bool PadIsPressed;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     }
     public void Update()
     {
-        if (isPressed)
+        if (PadIsPressed)
         {
             Debug.Log("‰Ÿ‚³‚ê‚½");
             if (count % interval == 0)
@@ -45,7 +46,9 @@ public class PlayerNormalBulletLauncher : MonoBehaviour
     }
     public void InputBullet(InputAction.CallbackContext context)
     {
-        isPressed = Keyboard.current.spaceKey.IsPressed();
+        //isPressed = Keyboard.current.spaceKey.IsPressed();
+        PadIsPressed = Gamepad.current.buttonEast.IsPressed();
+
     }
 
 }
