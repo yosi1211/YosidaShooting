@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Production/main.unity
     guid: 181d3349e3e6e8b4ea71e17b673a459e
   - enabled: 1
@@ -20,5 +20,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Production/MainSystemTest.unity
     guid: e981192a500ea214fb636b0cc308ffde
+  - enabled: 1
+    path: Assets/Production/RankingScene/All_Ranking.unity
+    guid: 3ac1fa4d1810ae249b8693a4888cfc96
+  - enabled: 1
+    path: Assets/Production/RankingScene/Easy_Ranking.unity
+    guid: 061b1271c720262459d288283482ec76
+  - enabled: 1
+    path: Assets/Production/RankingScene/Hard_Ranking.unity
+    guid: e2231675e77a6e3429efc57a6c1de89d
+  - enabled: 1
+    path: Assets/Production/RankingScene/Normal_Ranking.unity
+    guid: 1dac7ac221b3fcf4dac3a925caa30e8a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e7f92e6847ceee54e9768171f7492931, type: 2}

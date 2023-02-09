@@ -3,11 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class EscapeTitl : MonoBehaviour
 {
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.F12))
         {
-            SceneManager.LoadScene("");
+            Debug.Log("F12");
+            SceneManager.LoadScene("TitleScene");
         }
     }
 }
