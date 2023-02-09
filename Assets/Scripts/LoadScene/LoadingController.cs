@@ -22,6 +22,7 @@ namespace SceneaManger
 
         public void LoadData(AsyncOperation _load)
         {
+            if(load == null){
             load = _load;
             load.allowSceneActivation = false;
             loadingUI.SetActive(true);
@@ -36,9 +37,11 @@ namespace SceneaManger
                     break;
                 }
             }
+            Debug.Log("sss");
             timer.GetEndTimer()
                 .Subscribe(_ => load.allowSceneActivation = true);
             timer.SetTimer(waitingTiiime);
+            }
         }
 
         private void OnDestroy()
