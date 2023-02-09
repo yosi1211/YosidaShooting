@@ -13,7 +13,7 @@ public class SpreadBulletLauncher : MonoBehaviour
     public float m_shotInterval; // 弾の発射間隔（秒）
     public float angle;
     bool isPressed;
-
+    bool PadIsPressed;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,7 @@ public class SpreadBulletLauncher : MonoBehaviour
 
         // 弾の発射タイミングを管理するタイマーをリセットする
         m_shotTimer = 0;
-        if (isPressed) 
+        if (PadIsPressed) 
         {
             // 弾を発射する
             ShootNWay(angle, m_shotAngleRange, m_shotSpeed, m_shotCount);
@@ -63,7 +63,8 @@ public class SpreadBulletLauncher : MonoBehaviour
     }
     public void InputBullet(InputAction.CallbackContext context)
     {
-        isPressed = Keyboard.current.spaceKey.IsPressed();
+        //isPressed = Keyboard.current.spaceKey.IsPressed();
+        PadIsPressed = Gamepad.current.buttonEast.IsPressed();
     }
 
 }

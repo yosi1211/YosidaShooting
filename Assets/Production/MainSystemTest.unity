@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &12730915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 1292971797}
-  interval: 250
+  interval: 22
 --- !u!50 &12730921
 Rigidbody2D:
   serializedVersion: 4
@@ -515,8 +515,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 0
+  m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -728,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &114751971
 RectTransform:
   m_ObjectHideFlags: 0
@@ -882,7 +882,7 @@ MonoBehaviour:
   player: {fileID: 263223016}
   damageFlag: 0
   BombActive: {fileID: 1951971077}
-  invincibleTime: 1
+  invincibleTime: 3
   sp: {fileID: 263223020}
 --- !u!58 &169201508
 CircleCollider2D:
@@ -973,7 +973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &263223017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,7 +1020,19 @@ MonoBehaviour:
     m_ActionId: 4e710fbb-d2d0-4a85-80fa-f60193e2dc74
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 263223023}
+        m_TargetAssemblyTypeName: PlayerNormalBulletLauncher, Assembly-CSharp
+        m_MethodName: InputBullet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ad6a0735-497a-4557-8722-58c88dabc1e2
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1225,7 +1237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 1156509222}
-  interval: 25
+  interval: 13
 --- !u!114 &263223024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2033,7 +2045,7 @@ MonoBehaviour:
   player: {fileID: 12730914}
   damageFlag: 0
   BombActive: {fileID: 1951971077}
-  invincibleTime: 1
+  invincibleTime: 6
   sp: {fileID: 12730918}
 --- !u!58 &981034226
 CircleCollider2D:
@@ -2155,7 +2167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1002608415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,8 +2419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_shotPrefab: {fileID: -531646215561706823, guid: 342feeeaf5d190d40a50798ff33e7324, type: 3}
-  m_shotSpeed: 0.04
-  m_shotAngleRange: 50
+  m_shotSpeed: 0.15
+  m_shotAngleRange: 60
   m_shotTimer: 0
   m_shotCount: 5
   m_shotInterval: 0.3
@@ -2446,7 +2458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1058579534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2568,7 +2580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1067735116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3264,7 +3276,7 @@ MonoBehaviour:
   targetMobEnemy3: {fileID: 0}
   targetMobEnemy4: {fileID: 0}
   bullet: {fileID: 1014145177227836825, guid: d3b7329cce782c84aa24661efc56a21f, type: 3}
-  maxCount: 300
+  maxCount: 450
   density: 5
 --- !u!1 &1328919852
 GameObject:
@@ -4368,7 +4380,7 @@ MonoBehaviour:
   player: {fileID: 1002608414}
   damageFlag: 0
   BombActive: {fileID: 1951971077}
-  invincibleTime: 1
+  invincibleTime: 3
   sp: {fileID: 1002608418}
 --- !u!58 &1975831448
 CircleCollider2D:

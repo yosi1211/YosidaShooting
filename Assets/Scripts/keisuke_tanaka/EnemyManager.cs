@@ -108,7 +108,7 @@ public class EnemyManager : MonoBehaviour
                 }
                 if (EnemyHP < 500)
                 {
-                    speed = 3f;
+                    speed = 6f;
                  /*/  if (MobFlag == 1)
                     {
                         enemy_summon.SetLimit(1);
@@ -117,7 +117,7 @@ public class EnemyManager : MonoBehaviour
                 }
                 if (EnemyHP < 250)
                 {
-                    speed = 3f;
+                    speed = 7f;
               /*/    if (MobFlag == 2)
                     {
                         enemy_summon.SetLimit(1);
