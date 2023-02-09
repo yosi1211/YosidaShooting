@@ -1,5 +1,6 @@
 using SceneaManger;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ButtonManager : MonoBehaviour
     [SerializeField, Header("ƒ^ƒCƒgƒ‹")]
     GameObject Title_Canvas;
 
+    //private Vector2 inputValue = new Vector2();
+
     private void Start()
     {
         machineSelect_Canvas.SetActive(false);
@@ -21,7 +24,7 @@ public class ButtonManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("start") || Input.GetMouseButtonDown(0))
+        if (/*Input.GetButtonDown("start") ||*/ Input.GetMouseButtonDown(0))
         {
             START_OnClick();
         }
