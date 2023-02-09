@@ -5,7 +5,7 @@ namespace PoolControler_SearchL
 {
     public class ObjectPoolControler_SearchL : MonoBehaviour
     {
-        [SerializeField] private GameObject player;
+        [SerializeField] private List<GameObject> player;
         List<BulletController_SearchL> _SearchL;
         int listCount = 0;
         //弾のプレハブ
@@ -30,11 +30,30 @@ namespace PoolControler_SearchL
             //弾を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
-                //生成
-                BulletController_SearchL tmpBullet = Instantiate(bullet, setPos, setRot, transform);
-                tmpBullet.Init(player);
-                //Queueに追加
-                bulletQueue.Enqueue(tmpBullet);
+                if (Ownmachine_Inform.ownmachine == 0)
+                {
+                    //生成
+                    BulletController_SearchL tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                    tmpBullet.Init(player[0]);
+                    //Queueに追加
+                    bulletQueue.Enqueue(tmpBullet);
+                }
+                if (Ownmachine_Inform.ownmachine == 1)
+                {
+                    //生成
+                    BulletController_SearchL tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                    tmpBullet.Init(player[1]);
+                    //Queueに追加
+                    bulletQueue.Enqueue(tmpBullet);
+                }
+                if (Ownmachine_Inform.ownmachine == 2)
+                {
+                    //生成
+                    BulletController_SearchL tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                    tmpBullet.Init(player[2]);
+                    //Queueに追加
+                    bulletQueue.Enqueue(tmpBullet);
+                }
             }
         }
 
