@@ -97,32 +97,32 @@ public class EnemyManager : MonoBehaviour
                 //moveEnd.OnNext(true);
                 tempUpdate.Dispose();
                 count = 0;
-                if (EnemyHP < 75)
+                if (EnemyHP < 1050)
                 {
                     speed = 5f;
                     if (MobFlag == 0)
                     {
                         enemy_summon.SetLimit(1);
                         MobFlag = 1;
-                    }
+                    } 
                 }
-                if (EnemyHP < 50)
+                if (EnemyHP < 500)
                 {
-                    speed = 7f;
-                    if (MobFlag == 1)
+                    speed = 3f;
+                 /*/  if (MobFlag == 1)
                     {
                         enemy_summon.SetLimit(1);
                         MobFlag = 2;
-                    }
+                    } /*/
                 }
-                if (EnemyHP < 25)
+                if (EnemyHP < 250)
                 {
-                    speed = 9f;
-                    if (MobFlag == 2)
+                    speed = 3f;
+              /*/    if (MobFlag == 2)
                     {
                         enemy_summon.SetLimit(1);
                         MobFlag = 3;
-                    }
+                    } /*/
                 }
                 Move(targetPos);
                 RandomMove();
