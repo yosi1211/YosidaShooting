@@ -1280,7 +1280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b1d1cde0c8cbe44a9ac948a8a4470c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1002608414}
+  player:
+  - {fileID: 1002608414}
+  - {fileID: 263223016}
+  - {fileID: 12730914}
   bullet: {fileID: -6126580963041048109, guid: 2f7ee75fd1c54bf41895913e568d742b, type: 3}
   bulletPrefab: {fileID: 4797006008852606294, guid: 2f7ee75fd1c54bf41895913e568d742b, type: 3}
   maxCount: 600
@@ -3094,7 +3097,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07c1946724f824479c5bf74dd1ba98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1002608414}
+  player:
+  - {fileID: 1002608414}
+  - {fileID: 263223016}
+  - {fileID: 12730914}
   bullet: {fileID: 7966761330681012301, guid: f13d3545c4a121947a3fcb4edb0426a0, type: 3}
   bulletPrefab: {fileID: 4797006008852606294, guid: f13d3545c4a121947a3fcb4edb0426a0, type: 3}
   maxCount: 600
@@ -3699,7 +3705,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pbpcontroller: {fileID: 1292971797}
-  player: {fileID: 1002608414}
+  player:
+  - {fileID: 1002608414}
+  - {fileID: 263223016}
+  - {fileID: 12730914}
   bullet: {fileID: 4135376202861604622, guid: 7eaee3d73f32a1747abd8449fb66d4fb, type: 3}
   _left: -1
   _right: 1

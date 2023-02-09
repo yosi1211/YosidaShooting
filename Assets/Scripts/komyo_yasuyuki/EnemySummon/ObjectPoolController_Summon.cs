@@ -8,7 +8,7 @@ namespace PoolControler_Summon
     {
         [SerializeField]
         PlayerBulletPoolController _pbpcontroller;
-        [SerializeField] private GameObject player;
+        [SerializeField] private List<GameObject> player;
         //リストの取得
         List<SummonEnemyController> _SummonL;
         int listCount = 0;
@@ -49,12 +49,31 @@ namespace PoolControler_Summon
             //敵を生成するループ
             for (int i = 0; i < maxCount; i++)
             {
-                //生成
-                SummonEnemyController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
-                tmpBullet.GetComponentInChildren<ObjectPoolController_Mobs>().Init(player);
-                _pbpcontroller.AddObj(tmpBullet.gameObject);
-                //Queueに追加
-                bulletQueue.Enqueue(tmpBullet);
+                if (Ownmachine_Inform.ownmachine == 0)
+                {
+                    //生成
+                    SummonEnemyController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                    tmpBullet.GetComponentInChildren<ObjectPoolController_Mobs>().Init(player[0]);
+                    _pbpcontroller.AddObj(tmpBullet.gameObject);
+                    //Queueに追加
+                    bulletQueue.Enqueue(tmpBullet);
+                }
+                if(Ownmachine_Inform.ownmachine == 1) 
+                {
+                    SummonEnemyController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                    tmpBullet.GetComponentInChildren<ObjectPoolController_Mobs>().Init(player[1]);
+                    _pbpcontroller.AddObj(tmpBullet.gameObject);
+                    //Queueに追加
+                    bulletQueue.Enqueue(tmpBullet);
+                }
+                if (Ownmachine_Inform.ownmachine == 2)
+                {
+                    SummonEnemyController tmpBullet = Instantiate(bullet, setPos, setRot, transform);
+                    tmpBullet.GetComponentInChildren<ObjectPoolController_Mobs>().Init(player[2]);
+                    _pbpcontroller.AddObj(tmpBullet.gameObject);
+                    //Queueに追加
+                    bulletQueue.Enqueue(tmpBullet);
+                }
             }
         }
                 //貸し出す処理
