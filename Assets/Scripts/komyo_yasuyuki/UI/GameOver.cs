@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using playermanager;
@@ -12,7 +13,7 @@ namespace gameover
         private float time;
         [SerializeField]
         TimerManager timer;
-        //[SerializeField] PlayerManager Pmanager;
+        [SerializeField] private List<PlayerManager> playerList;
         private void Update()
         {
             if (timer.Getendtime())
@@ -20,10 +21,20 @@ namespace gameover
                 result.SetActive(true);
                 Invoke("BackTitl", time);
             }
-            /*if (Pmanager.GetLifeStock() == 0) {
+            if (playerList[0].GetLifeStock() == 0) {
                 result.SetActive(true);
                 Invoke("BackTitl", time);
-            }*/
+            }
+            if (playerList[1].GetLifeStock() == 0)
+            {
+                result.SetActive(true);
+                Invoke("BackTitl", time);
+            }
+            if (playerList[2].GetLifeStock() == 0)
+            {
+                result.SetActive(true);
+                Invoke("BackTitl", time);
+            }
         }
         public void BackTitl()
         {
