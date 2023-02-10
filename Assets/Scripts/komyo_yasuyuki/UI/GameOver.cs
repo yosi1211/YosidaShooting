@@ -14,6 +14,10 @@ namespace gameover
         [SerializeField]
         TimerManager timer;
         [SerializeField] private List<PlayerManager> playerList;
+        private void Start()
+        {
+            result.SetActive(false);
+        }
         private void Update()
         {
             if (timer.Getendtime())

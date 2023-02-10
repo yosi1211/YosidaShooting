@@ -964,12 +964,12 @@ GameObject:
   - component: {fileID: 193580789}
   - component: {fileID: 193580788}
   m_Layer: 5
-  m_Name: Image
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &193580787
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3384,7 +3384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6e2a11c72e1b3439b583feeb21b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  result: {fileID: 0}
+  result: {fileID: 193580786}
   time: 3
   timer: {fileID: 2063395289}
   playerList:
