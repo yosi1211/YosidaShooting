@@ -2,6 +2,8 @@ using UnityEngine;
 using PoolControler_OptionB;
 using UniRx;
 using Other_Script;
+using UnityEngine.InputSystem;
+
 public class Launchar_Option : MonoBehaviour
 {
     int Limit;
@@ -47,9 +49,9 @@ public class Launchar_Option : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space/*Ç±Ç±ÇplayerÇÃçUåÇÇ∆ìØÇ∂Ç…*/))
-        {
-            SetLimit(1);
-        }
+            Invoke("callSetLimit", 2.0f);
+    }
+    public void callSetLimit() {
+        SetLimit(1);
     }
 }
